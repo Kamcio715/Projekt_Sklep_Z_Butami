@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Shoe extends Model
 {
     protected $fillable = [
-        'name',
-        'brand',
-        'size',
-        'price',
-        'color',
-        'description',
-        'image',
+        'nazwa',
+        'marka',
+        'rozmiar',
+        'cena',
+        'kolor',
+        'opis',
+        'zdjecie',
     ];
 }
