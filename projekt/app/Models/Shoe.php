@@ -9,6 +9,8 @@ class Shoe extends Model
     protected $fillable = [
         'nazwa',
         'marka',
+        'kategoria',
+        'rodzaj',
         'rozmiar',
         'cena',
         'kolor',
