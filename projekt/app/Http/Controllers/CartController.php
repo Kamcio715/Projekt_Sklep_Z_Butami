@@ -50,7 +50,7 @@ class CartController extends Controller
                 'zdjecie' => $but->zdjecie,
              ];
         }
-
+        // Zapisanie zaktualizowanego koszyka do sesji
         $this->saveKoszyk($koszyk);
 
         return redirect()->route('koszyk.index')->with('success', 'Dodano produkt do koszyka.');
@@ -71,7 +71,7 @@ class CartController extends Controller
                 $koszyk[$but->id]['ilosc'] = $ilosc;
             }
         }
-
+        // Zapisanie zaktualizowanego koszyka do
         $this->saveKoszyk($koszyk);
 
         return redirect()->route('koszyk.index')->with('success', 'Zaktualizowano ilość produktu w koszyku.');

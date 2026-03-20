@@ -8,23 +8,23 @@ use Illuminate\Http\Request;
 class ShoeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Wyświetlanie listy butów
      */
     public function index()
     {
         $buty = Shoe::latest()->get();
 
-        $marki = Shoe::select('brand')
-            ->whereNotNull('brand')
+        $marki = Shoe::select('marka')
+            ->whereNotNull('marka')
             ->distinct()
-            ->orderBy('brand')
-            ->pluck('brand');
+            ->orderBy('marka')
+            ->pluck('marka');
         
-        $kategorie = Shoe::select('kategorie')
-            ->whereNotNull('kategorie')
+        $kategorie = Shoe::select('kategoria')
+            ->whereNotNull('kategoria')
             ->distinct()
-            ->orderBy('kategorie')
-            ->pluck('kategorie');
+            ->orderBy('kategoria')
+            ->pluck('kategoria');
 
         $rodzaje = Shoe::select('rodzaj')
             ->whereNotNull('rodzaj')
@@ -43,7 +43,7 @@ class ShoeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Wyświetlanie formularza do tworzenia nowego buta.
      */
     public function create()
     {
@@ -51,7 +51,7 @@ class ShoeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Zapisywanie nowego buta do bazy danych.
      */
     public function store(Request $request)
     {
@@ -73,7 +73,7 @@ class ShoeController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Wyświetlanie szczegółów pojedynczego buta
      */
     public function show(Shoe $shoe)
     {
@@ -81,7 +81,7 @@ class ShoeController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Edycja istniejącego buta
      */
     public function edit(Shoe $shoe)
     {
@@ -89,7 +89,7 @@ class ShoeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Aktualizowanie istniejącego buta w bazie danych
      */
     public function update(Request $request, Shoe $shoe)
     {
@@ -97,7 +97,7 @@ class ShoeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Usuwanie buta z bazy danych
      */
     public function destroy(Shoe $shoe)
     {
