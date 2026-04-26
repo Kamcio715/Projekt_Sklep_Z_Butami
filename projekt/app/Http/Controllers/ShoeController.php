@@ -13,33 +13,29 @@ class ShoeController extends Controller
      */
     public function index()
     {
-        $buty = Shoe::latest()->get();
+        $shoes = Shoe::latest()->get();
 
-        $marki = Shoe::select('marka')
-            ->whereNotNull('marka')
+        $brands = Shoe::select('brand')
+            ->whereNotNull('brand')
             ->distinct()
-            ->orderBy('marka')
-            ->pluck('marka');
+            ->orderBy('brand');
         
-        $kategorie = Shoe::select('kategoria')
-            ->whereNotNull('kategoria')
+        $categories = Shoe::select('categorie')
+            ->whereNotNull('categorie')
             ->distinct()
-            ->orderBy('kategoria')
-            ->pluck('kategoria');
+            ->orderBy('categorie');
 
-        $rodzaje = Shoe::select('rodzaj')
-            ->whereNotNull('rodzaj')
+        $types = Shoe::select('type')
+            ->whereNotNull('type')
             ->distinct()
-            ->orderBy('rodzaj')
-            ->pluck('rodzaj');
+            ->orderBy('type');
         
-        $rozmiary = Shoe::select('rozmiar')
-            ->whereNotNull('rozmiar')
+        $sizes = Shoe::select('size')
+            ->whereNotNull('size')
             ->distinct()
-            ->orderBy('rozmiar')
-            ->pluck('rozmiar');
+            ->orderBy('size');
         
-        return view('shoes.index', compact('buty', 'marki', 'kategorie', 'rodzaje', 'rozmiary'));
+        return view('shoes.index', compact('shoes', 'brands', 'categories', 'types', 'sizes'));
 
     }
 
