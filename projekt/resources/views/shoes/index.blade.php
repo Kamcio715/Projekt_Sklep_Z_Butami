@@ -67,16 +67,32 @@
         <hr>
     </div>
     <section class="container">
-         <ul class="grid">
-            <li class="card">
-                <img src="img/nike1.png" alt="nike1">
-                <h2>Nike1</h2>
-                <hr>
-                <p>Dla mężczyzn</p>
-                <p>Sportowe</p>
-                <p>Cena 29.99zł</p>
-            </li>
-        </ul>
+        @if($shoes->count())
+            <ul class="grid">
+                @foreach($shoes as $shoe)
+                    <li class="card">
+                        <a href="{{ route('shoes.show', $shoe) }}">
+                            @if($shoe->zdjecie)
+                                <img src="{{ asset('storage/' . $shoe->zdjecie) }}" alt="{{ $shoe->name }}">
+                            @else
+                                <div class="no-image">Brak zdjęcia</div>
+                            @endif
+                            <h4>{{ $shoe->nazwa }}</h4>
+                            <hr>
+                            <div>{{ $shoe->marka }}</div>
+                            <div>{{ number_format($shoe->cena, 2, '.', '') }} zł</div>
+                            <div>{{ $shoe->kategoria }}</div>
+                            <div>{{ $shoe->rodzaj }}</div>
+                            <div>{{ $shoe->rozmiar }}</div>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @else
+            <div>
+                Brak produktów spełniających wybrane kryteria.
+            </div>
+        @endif
     </section>
     <footer class="footer">
         <div class="footercontainer">
@@ -87,7 +103,7 @@
                 <a href="">Polityka prywatności</a>
                 <a href="">Regulamin</a>
             </div>
-            <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone. Spierdalaj</p>
+            <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone</p>
         </div>
     </footer>
 </body>
