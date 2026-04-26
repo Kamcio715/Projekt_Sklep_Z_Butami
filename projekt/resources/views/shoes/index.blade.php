@@ -11,21 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <a href="{{ route('shoes.index') }}"></a><img src="{{ asset('storage/zdj/logo.png') }}" alt="logo strony">
-        </div>
-        <h1 class="tytul">BUTY.PL</h1>
-        <div class="prawo">
-            <img id="searchlogo" src="{{ asset('storage/zdj/lupa.png') }}" alt="searchlogo">
-            <a href="{{ route('cart.index') }}"><img class="koszyk" src="{{ asset('storage/zdj/koszyk.png') }}" alt="koszyk"></a>
-            <img class="usericon" src="{{ asset('storage/zdj/user.png') }}" alt="ikona użytkownika">
-            <div class="usermenu" id="usermenu">
-                <a href="{{ route('register') }}">ZAREJESTRUJ SIĘ</a>
-                <a href="{{ route('login') }}">ZALOGUJ SIĘ</a>
-            </div>
-        </div>
-    </header>
     <section class="hero">
         <div class="heroleft">
             <h1>„Kocham Rebook, i prezesa firmy. a mój wujek to prawcował w fabryce i zdobyli kurwa ten order marki roku 5/5"</h1>
