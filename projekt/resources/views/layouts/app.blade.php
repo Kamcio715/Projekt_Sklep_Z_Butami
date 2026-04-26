@@ -19,21 +19,35 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        <header class="header">
+            <div class="logo">
+                <img src="{{ asset('storage/zdj/logo.png') }} alt="logo strony">
+            </div>
+            <h1 class="tytul">BUTY.PL</h1>
+            <div class="prawo">
+                <img id="searchlogo" src="storage/zdj/lupa.png" alt="searchlogo">
+                <a href="{{ route('cart.index') }}"><img class="koszyk" src="storage/zdj/koszyk.png" alt="koszyk"></a>
+                <img class="usericon" src="{{ asset('storage/zdj/user.png') }}" alt="ikona użytkownika">
+                <div class="usermenu" id="usermenu">
+                    <a href="{{ route('login') }}">ZALOGUJ SIĘ</a>
+                    <a href="{{ route('register') }}">ZAREJESTRUJ SIĘ</a>
+                </div>
+            </div>
+        </header>
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+            
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="app-container">
+                @if(session('success'))
+                    <div class="alert alert-success mb-4">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @yield('content')
+                </div>
             </main>
         </div>
     </body>
