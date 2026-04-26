@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    color: white;
+    background-color: white;
+    padding-top: 80px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    min-height: 78px;
+}
+.logo img{
+    height: 83px;
+    box-sizing: border-box;
+}
+.logo{
+    height: auto;
+}
+.tytul {
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.prawo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.prawo a img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+.koszyk {
+    width: 22px;
+}
+.container{
+    padding: 20px;
+    min-height: calc(100vh - 78px - 250px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: white;
+}
+.form-container {
+    font-weight: bold;
+    font-size: 1em;
+    font-family: "Roboto Condensed", sans-serif;
+    min-height: 325px;
+    height:28em;
+    width: 350px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+}
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1em;
+    font-family: "Roboto Condensed", sans-serif;
+}
+.botton {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+button{
+    font-weight: bold;
+    font-size: 1em;
+    font-family: "Roboto Condensed", sans-serif;
+}
+.submit {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit:hover {
+    background-color: #333;
+}
+.reset-hasla{
+    padding-top: 15px;
+}
+.reset-hasla,
+.signup {
+    font-size: 1em;
+    text-align: center;
+    line-height: 2em;
+}
+.reset-hasla a,
+.signup a {
+    color: black;
+    font-weight: bold;
+}
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 20px;
+  min-height: calc(100vh - 78px - 250px - 20vh);
+  min-height: 250px;
+}
+.footercontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footertitle {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.footerlink {
+  margin-bottom: 20px;
+}
+.footercontainer hr{
+    margin: 25px 0px;
+}
+.footerlink a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+.footerlink a:hover {
+  color: #fff;
+}
+.footertm {
+  font-size: 12px;
+  color: #777;
+}
+@media (max-width: 768px) {
+    .header {
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 50px;
+    }
+    .logo img{
+        height: 45px;
+    }
+    .tytul {
+        font-size: 30px;
+    }
+    .prawo img,.prawo a {
+        height: 40px;
+    }
+    .form-container {
+        margin: 20px auto;
+        width: 90%;
+        padding: 25px;
+    }
+    .container {
+        padding: 20px;
+        min-height: calc(100vh - 78px - 250px);
+    }
+}
+@media (max-width: 480px) {
+    .tytul {
+        font-size: 20px;
+    }
+    .prawo img,.prawo a {
+        height: 32px;
+    }
+    .usericon, #searchlogo, .prawo a img {
+        height: 32px;
+        width: 32px;
+    }
+    .form-container {
+        width: 95%;
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .input-container input {
+        padding: 12px;
+        font-size: 14px;
+    }
+    .submit {
+        padding: 12px;
+        font-size: 14px;
+    }
+    .footer {
+        height: auto;
+        padding: 20px 10px;
+        text-align: center;
+    }
+    .footerlink a {
+        display: block;
+        margin: 8px 0;
+    }
+}
