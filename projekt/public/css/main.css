@@ -303,6 +303,7 @@ footer hr{
 @media (max-width: 768px) {
     body {
         min-width: 400px;
+        max-height: 650px;
     }
     .header {
         padding: 10px;
@@ -390,6 +391,7 @@ footer hr{
 @media (max-width: 480px) {
     body {
         min-width: 400px;
+        max-height: 525px;
     }
     .prawo img,.prawo a {
         height: 32px;
