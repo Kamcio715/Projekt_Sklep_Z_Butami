@@ -1,0 +1,432 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    color: white;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    height: 10vh;
+    min-height: 78px;
+}
+.logo img{
+    height: 83px;
+    box-sizing: border-box;
+}
+.logo{
+    height: auto;
+}
+.tytul {
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.prawo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.usericon, #searchlogo, .prawo a img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+.usermenu {
+    position: absolute;
+    top: -10vh;
+    right: 0;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px 0;
+    width: 160px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 0.3s;
+}
+
+.usermenu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.usermenu a:hover {
+    cursor: pointer;
+}
+
+.usermenu.active {
+    opacity: 1;
+    top: 10vh;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.koszyk, .user {
+    width: 22px;
+}
+
+.hero {
+    height: 50vh;
+    min-height: 400px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    overflow: hidden;
+    color: black;
+}
+.heroleft {
+    width: 60%;
+    text-align: center;
+    margin: 0px 180px;
+    margin-top: 50px;
+}
+.hero h1 {
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+    font-style: italic;
+}
+.hero h1:first-child{
+    margin-top: 40px;
+}
+.hero button{
+    margin-top: 30px;
+    font-size: 27px;
+}
+.heroimg {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+.heroimg img {
+    width: 100%;
+    max-width: 1000px;
+    object-fit: contain;
+    transition: 0.4s;
+}
+.heroimg img:hover {
+    transform: scale(1.2) rotate(-2deg);
+}
+.herobtn {
+    background: black;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Roboto Condensed", sans-serif;
+}
+.search {
+    overflow: hidden;
+    position: fixed;
+    width: 40%;
+    min-width: none;
+    height: 5vh;
+    top: -11vh;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+    background: white;
+    border-radius: 30px;
+    transition: 0.3s;
+    border: 2px solid grey;
+    box-shadow: 2px 2px 0px 0px grey;
+    z-index: 3;
+}
+.search input {
+    padding-left: 20px;
+    border: none;
+    outline: none;
+    font-size: 2vh;
+    line-height: 5vh;
+    width: 250px;
+}
+.search.active {
+    top: 11vh;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.filtr {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    background: #000000;
+    padding: 25px;
+    font-weight: bold;
+}
+.filtr h1{
+    cursor: pointer;
+    font-size: 46px;
+}
+.filtr img{
+    height: 55px;
+    cursor: pointer;
+}
+.filtrpanel {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 10vh;
+    left: -400px;
+    width: 350px;
+    height: 90vh;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 3;
+    border-right: 3px solid black;
+}
+.filtrpanel img:nth-child(2){
+    width: 50%;
+    justify-content: center;
+}
+.filtrpanel hr{
+    width: 80%;
+    margin: 40px;
+}
+.filtrpanel select{
+    margin: 40px;
+    text-align: center;
+    font-size: 24px;
+    height: 32px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+.filtrpanel.active{
+    left: 0;
+}
+hr{
+    background-color: #000000;
+    height: 3px;
+}
+footer hr{
+    background-color: white;
+    height: 3px;
+}
+.container {
+    text-align: center;
+    padding: 40px 20px 0px 20px
+}
+.grid {
+    margin: 20px 20px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+.card {
+    background: #e9e9e9;
+    padding: 20px;
+    border-radius: 4px;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+.card:hover {
+    transform: translateY(-25px);
+}
+.card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+.card h2 {
+    font-size: 32px;
+    color: black;
+}
+.card p {
+    font-size: 24px;
+    color: #555;
+}
+.card hr{
+    margin-bottom: 10px;
+}
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+.footercontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footertitle {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.footerlink {
+  margin-bottom: 20px;
+}
+.footercontainer hr{
+    margin: 25px 0px;
+}
+.footerlink a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+.footerlink a:hover {
+  color: #fff;
+}
+.footertm {
+  font-size: 12px;
+  color: #777;
+}
+@media (max-width: 768px) {
+    body {
+        min-width: 400px;
+    }
+    .header {
+        padding: 10px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        min-height: 50px;
+    }
+    .logo img{
+        height: 45px;
+    }
+    .tytul {
+        font-size: 30px;
+    }
+    .prawo img,.prawo a {
+        height: 40px;
+    }
+    .hero {
+        display: none;
+    }
+    .filtr h1{
+        font-size: 25px;
+    }
+    .filtr img{
+        height: 30px;
+        cursor: pointer;
+    }
+    .filtrpanel {
+        flex-direction: row;
+        justify-content: space-around;
+        top: 0px;
+        height: 107px;
+        border-bottom: 3px solid black;
+        border-right: none;
+        font-size: 11px;
+        width: 100%;
+        left: -100%;
+    }
+    .filtrpanel div:first-child {
+        display: none;
+    }
+    .filtrpanel select{
+        width: 180px;
+        margin: 0px;
+    }
+    .filtrpanel hr{
+        width: 80%;
+        margin: 40px;
+    }
+    .filtrpanel select{
+        margin: 0px;
+    }
+    .filtrgrupa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        min-width: 200px;
+        width: auto;
+        flex: 0 0 auto;
+    }
+    .filtrpanel hr{
+        display: none;
+    }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+    .card img {
+        width: 100%;
+        max-height: 80px;
+        object-fit: contain;
+        margin-bottom: 20px;
+    }
+    .card h2 {
+        font-size: 20px;
+    }
+    .card p {
+        font-size: 16px;
+    }
+    .search input {
+        width: 180px;
+    }
+}
+@media (max-width: 480px) {
+    body {
+        min-width: 400px;
+    }
+    .prawo img,.prawo a {
+        height: 32px;
+    }
+    .filtrpanel{
+        text-align: center;
+        flex-direction: row;
+        font-size: 8px;
+        padding: 20px;
+    }
+    .filtrgrupa{
+        width: 33%;
+        min-width: 0px;
+    }
+    .filtrpanel select, .filtrpanel option{
+        width: 100px;
+        height: 20px;
+        font-size: 15px;
+    }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .hero {
+        display: none;
+    }
+    .heroleft button{
+        display: none;
+    }
+    .tytul {
+        font-size: 20px;
+    }
+    .usericon, #searchlogo, .prawo a img {
+        height: 32px;
+        width: 32px;
+    }
+}
