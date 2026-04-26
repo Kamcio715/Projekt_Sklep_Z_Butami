@@ -18,7 +18,7 @@
             <button class="herobtn">ZGARNIJ TERAZ</button>
         </div>
         <div class="heroimg">
-            <img src="{{ asset('storage/zdj/Carina2.0_07.jpg') }}" alt="but">
+            <img src="{{ asset('storage/zdj/hero.png') }}" alt="but">
         </div>
     </section>
     <div class="search" id="search">
