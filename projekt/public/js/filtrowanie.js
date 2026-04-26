@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function()
 {
     // Zmienne do przechowywania elementów DOM
 
-    const filtr = document.getElementById('filtr');
+    const filtr = document.getElementById('szukaj');
     const lista = document.querySelectorAll('.lista li');
     const nazwa = document.querySelectorAll('.nazwa');
     const marka = document.getElementById('marka');
@@ -49,5 +49,5 @@ document.addEventListener('DOMContentLoaded', function()
     marka.addEventListener('input', filtrowanie);
     kat.addEventListener('input', filtrowanie);
     rodz.addEventListener('input', filtrowanie);
-    rozmiar.addEventListener('input', filtrowanie);
+    // rozmiar.addEventListener('input', filtrowanie);
 });
