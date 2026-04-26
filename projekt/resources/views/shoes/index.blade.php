@@ -89,7 +89,7 @@
                 @endforeach
             </ul>
         @else
-            <div>
+            <div class="brak">
                 Brak produktów spełniających wybrane kryteria.
             </div>
         @endif
