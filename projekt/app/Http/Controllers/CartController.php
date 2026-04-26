@@ -8,89 +8,85 @@ use App\Models\Shoe;
 class CartController extends Controller
 {
     // Pobieranie zawartości koszyka z sesji użytkownika
-    protected function getKoszyk(){
-        return session()->get('koszyk', []);
+    protected function getCart(){
+        return session()->get('cart', []);
     }
 
     // Zapisywanie zawartości koszyka do sesji użytkownika
-    protected function saveKoszyk($koszyk){
-        session()->put('koszyk', $koszyk);
+    protected function saveCart($cart){
+        session()->put('cart', $cart);
     }
     // Wyświetlanie zawartości koszyka
     public function index(){
-        $koszyk = $this->getKoszyk();
-        $lacznie = 0;
+        $cart = $this->getCart();
+        $total = 0;
 
-        foreach($koszyk as $przedmiot){
-            $lacznie += $przedmiot['cena'] * $przedmiot['ilosc'];
+        foreach($cart as $item){
+             $total += $item['price'] * $item['quantity'];
         }
-
-        return view('koszyk.index', compact('koszyk', 'lacznie'));
+        return view('cart.index', compact('cart', 'total'));
     }
 
     // Zwiekszanie ilosci produktów w koszyku
     public function add(Request $request, Shoe $shoe){
-        $ilosc = max(1, (int) $request->input('ilosc', 1));
-        $koszyk = $this->getKoszyk();
-        $but = $shoe;
+        $quantity = max(1, (int) $request->input('quantity', 1));
+        $cart = $this->getCart();;
 
-        if (isset($koszyk[$but->id])){
-            $ilosc += $koszyk[$but->id]['ilosc'];
+        if (isset($cart[$shoe->id])){
+            $quantity += $cart[$shoe->id]['quantity'];
         }
         else{
-            $koszyk[$but->id] = [
-                'id' => $but->id,
-                'nazwa' => $but->nazwa,
-                'marka' => $but->marka,
-                'kategoria' => $but->kategoria,
-                'rodzaj' => $but->rodzaj,
-                'rozmiar' => $but->rozmiar,
-                'cena' => $but->cena,
-                'ilosc' => $ilosc,
-                'zdjecie' => $but->zdjecie,
+            $cart[$shoe->id] = [
+                'id' => $shoe->id,
+                'nazwa' => $shoe->nazwa,
+                'marka' => $shoe->marka,
+                'kategoria' => $shoe->kategoria,
+                'rodzaj' => $shoe->rodzaj,
+                'rozmiar' => $shoe->rozmiar,
+                'cena' => $shoe->cena,
+                'ilosc' => $quantity,
+                'zdjecie' => $shoe->zdjecie,
              ];
         }
         // Zapisanie zaktualizowanego koszyka do sesji
-        $this->saveKoszyk($koszyk);
+        $this->saveCart($cart);
 
-        return redirect()->route('koszyk.index')->with('success', 'Dodano produkt do koszyka.');
+        return redirect()->route('cart.index')->with('success', 'Dodano produkt do koszyka.');
 
     }
 
     // Aktualizowanie ilości produktów w koszyku
     public function update(Request $request, Shoe $shoe){
-        $ilosc = (int) $request->input('ilosc', 1);
-        $koszyk = $this->getKoszyk();
-        $but = $shoe;
+        $quantity = (int) $request->input('quantity', 1);
+        $cart = $this->getCart();
 
-        if (isset($koszyk[$but->id])){
-            if ($ilosc <= 0){
-                unset($koszyk[$but->id]);
+        if (isset($cart[$shoe->id])){
+            if ($quantity <= 0){
+                unset($cart[$shoe->id]);
             }
             else{
-                $koszyk[$but->id]['ilosc'] = $ilosc;
+                $cart[$shoe->id]['quantity'] = $quantity;
             }
         }
         // Zapisanie zaktualizowanego koszyka do
-        $this->saveKoszyk($koszyk);
+        $this->saveCart($cart);
 
-        return redirect()->route('koszyk.index')->with('success', 'Zaktualizowano ilość produktu w koszyku.');
+        return redirect()->route('cart.index')->with('success', 'Zaktualizowano ilość produktu w koszyku.');
     }
 
     // Usuwanie produktów z koszyka
     public function remove(Shoe $shoe){
-        $koszyk = $this->getKoszyk();
-        $but = $shoe;
-        if (isset($koszyk[$but->id])){
-            unset($koszyk[$but->id]);
-            $this->saveKoszyk($koszyk);
+        $cart = $this->getCart();
+        if (isset($cart[$shoe->id])){
+            unset($cart[$shoe->id]);
+            $this->saveCart($cart);
         }
-        return redirect()->route('koszyk.index')->with('success', 'Usunięto produkt z koszyka.');
+        return redirect()->route('cart.index')->with('success', 'Usunięto produkt z koszyka.');
     }
 
     // Wyczyszenie całego koszyka
     public function clear(){
-        session()->forget('koszyk');
-        return redirect()->route('koszyk.index')->with('success', 'Wyczyszczono koszyk.');
+        session()->forget('cart');
+        return redirect()->route('cart.index')->with('success', 'Wyczyszczono koszyk.');
     }
 }
