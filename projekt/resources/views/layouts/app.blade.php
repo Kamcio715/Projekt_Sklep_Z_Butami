@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <script src="{{ asset('js/filtrowanie.js') }}"></script>
+
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -16,7 +18,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
         <header class="header">
@@ -49,10 +50,5 @@
                 @yield('content')
                 </div>
             </main>
-        </div>
     </body>
 </html>
-
-
-
-JEBAC KURWA ŻYDÓW
