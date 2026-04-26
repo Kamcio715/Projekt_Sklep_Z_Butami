@@ -13,8 +13,8 @@
 <body>
     <section class="hero">
         <div class="heroleft">
-            <h1>„Kocham Rebook, i prezesa firmy. a mój wujek to prawcował w fabryce i zdobyli kurwa ten order marki roku 5/5"</h1>
-            <h1> - StaraBaba123</h1>
+            <h1>„BARDZO DOBRE SUPER BUTY PAPUESZ POLAK POLECA 5/5"</h1>
+            <h1> - GRAŻYNA ŻARKO</h1>
             <button class="herobtn">ZGARNIJ TERAZ</button>
         </div>
         <div class="heroimg">
