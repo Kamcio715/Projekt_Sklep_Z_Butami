@@ -1,106 +1,110 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sklep z butami</title>
-    <link rel="stylesheet" href="Styles/main.css">
-    <link rel="stylesheet" href="Styles/naglowek.css">
-    <script src="Scripts/filtrowanie.js"></script>
+    <title>SKLEP Z BUTAMI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <!-- Nagłówek -->
-    <header class="gora">
+    <header class="header">
         <div class="logo">
-            <a class="lewo" href="index.html"><img src="Images/logo.png" alt="logo strony"></a>
+            <a href="{{ route('shoes.index') }}"></a><img src="{{ asset('storage/zdj/logo.png') }}" alt="logo strony">
         </div>
-        <h1 class="tytul">Buty.pl</h1>
+        <h1 class="tytul">BUTY.PL</h1>
         <div class="prawo">
-            <button class="rejestracja"><a href="rejestracja.html">Zarejestruj się</a></button>
-            <button class="login"><a href="logowanie.html">Zaloguj się</a></button>
-            <a href="koszyk.html"><img class="koszyk" src="Images/koszyk.png" alt="koszyk"></a>
-            <a href="uzytkownik.html"><img class="user" src="Images/user.png" alt="ikona użytkownika"></a>
+            <img id="searchlogo" src="{{ asset('storage/zdj/lupa.png') }}" alt="searchlogo">
+            <a href="{{ route('cart.index') }}"><img class="koszyk" src="{{ asset('storage/zdj/koszyk.png') }}" alt="koszyk"></a>
+            <img class="usericon" src="{{ asset('storage/zdj/user.png') }}" alt="ikona użytkownika">
+            <div class="usermenu" id="usermenu">
+                <a href="{{ route('register') }}">ZAREJESTRUJ SIĘ</a>
+                <a href="{{ route('login') }}">ZALOGUJ SIĘ</a>
+            </div>
         </div>
     </header>
-    
-    <!-- Szukanie po nazwie -->
-    <div class="szukaj">
-        <input type="text" class="szukaj_input" id="filtr" placeholder="Wyszukaj swoich wymarzonych butów">
-    </div>
-    
-    <!--szukanie po marce-->
-    <h3>Wybierz markę</h3>
-    <select id="marka">
-        <option></option>
-        <option value="Nike">Nike</option>
-        <option value="Adidas">Adidas</option>
-        <option value="Puma">Puma</option>
-        <option value="Champion">Champion</option>
-        <option value="Vans">Vans</option>
-    </select>
-
-    <!--szukanie po kategorii-->
-    <h3>Wybierz kategorię</h3>
-    <select id="kat">
-        <option></option>
-        <option value="mężczyzn">Dla mężczyzn</option>
-        <option value="kobiet">Dla kobiet</option>
-        <option value="dzieci">Dla dzieci</option>
-    </select>
-
-    <!--szukanie po rozdaju-->
-    <h3>Wybierz Rodzaj</h3>
-    <select id="rodz">
-        <option></option>
-        <option value="Sportowe">Sportowe</option>
-        <option value="Eleganckie">Eleganckie</option>
-        <option value="Codzienne">Codzienne</option>
-    </select>
-
-    <!--filtrowanie po cenie-->
-    <h3>Wybierz cene</h3>
-    <div class="cena-container">
-        <div class="cena-input">
-            <div class="przedział-cena">
-                <span>Min.</span>
-                <input type="number" class="min-input" value="69">
-            </div>
-            <div class="przedział-cena">
-                <span>Max.</span>
-                <input type="number" class="Max-input" value="23412">
-            </div>
+    <section class="hero">
+        <div class="heroleft">
+            <h1>„Kocham Rebook, i prezesa firmy. a mój wujek to prawcował w fabryce i zdobyli kurwa ten order marki roku 5/5"</h1>
+            <h1> - StaraBaba123</h1>
+            <button class="herobtn">ZGARNIJ TERAZ</button>
         </div>
-        <div class="slider">
-            <div class="div-slider"></div>
+        <div class="heroimg">
+            <img src="{{ asset('storage/zdj/Carina2.0_07.jpg') }}" alt="but">
         </div>
-        <!--slider--> <!--https://www.geeksforgeeks.org/javascript/price-range-slider-with-min-max-input-using-html-css-and-javascript/-->
-        <div class="zakres-input">
-            <input type="range" class="min-range" min="0" max="10000" value="3000" step="1">
-            <input type="range" class="max-range" min="0" max="10000" value="6969" step="1">
-        </div>  
-
+    </section>
+    <div class="search" id="search">
+        <input type="text" placeholder="Szukaj..." id="searchinput" />
     </div>
-    <!-- Buty -->
-    <div class="widok">
-            <ul class="lista">
-                <li>
-                    <div>
-                        <div>
-                            <img src="images/Carina2.0_01.jpg" alt="but">
-                        </div>
-                        <div>
-                            <h1 class="nazwa">CARINA 2.0</h1>
-                            <h2>Puma</h2>
-                            <h2>339.99 zł</h2>
-                            <h3>Dla kobiet</h3>
-                            <h3>Sportowe</h3>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+    <div class="filtr">
+        <img id="filtricon" src="{{ asset('storage/zdj/filtricon.png') }}" alt="filtricon">
+        <h1 id="filtrbtn">FILTR</h1>
     </div>
-        </footer>
-    <script src="scripts/main.js"></script>
+    <div id="filtrpanel" class="filtrpanel">
+        <div>
+            <img src="img/logo.png" alt="logo strony">
+        </div>
+        <hr>
+        <div class="filtrgrupa">
+            <h1>MARKA</h1>
+            <select id="marka">
+                <option></option>
+                <option value="Nike">Nike</option>
+                <option value="Adidas">Adidas</option>
+                <option value="Puma">Puma</option>
+                <option value="Champion">Champion</option>
+                <option value="Vans">Vans</option>
+            </select>
+        </div>
+        <hr>
+            <div class="filtrgrupa">
+            <h1>KATEGORIA</h1>
+            <select id="kat">
+                <option></option>
+                <option value="mężczyzn">Dla mężczyzn</option>
+                <option value="kobiet">Dla kobiet</option>
+                <option value="dzieci">Dla dzieci</option>
+            </select>
+        </div>
+        <hr>
+        <div class="filtrgrupa">
+            <h1>RODZAJ</h1>
+            <select id="rodz">
+                <option></option>
+                <option value="Sportowe">Sportowe</option>
+                <option value="Eleganckie">Eleganckie</option>
+                <option value="Codzienne">Codzienne</option>
+            </select>
+        </div>
+        <hr>
+    </div>
+    <section class="container">
+         <ul class="grid">
+            <li class="card">
+                <img src="img/nike1.png" alt="nike1">
+                <h2>Nike1</h2>
+                <hr>
+                <p>Dla mężczyzn</p>
+                <p>Sportowe</p>
+                <p>Cena 29.99zł</p>
+            </li>
+        </ul>
+    </section>
+    <footer class="footer">
+        <div class="footercontainer">
+            <p class="footertitle">POMOC</p>
+            <hr>
+            <div class="footerlink">
+                <a href="">Skontaktuj się z nami</a>
+                <a href="">Polityka prywatności</a>
+                <a href="">Regulamin</a>
+            </div>
+            <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone. Spierdalaj</p>
+        </div>
+    </footer>
 </body>
 </html>
+@endsection
