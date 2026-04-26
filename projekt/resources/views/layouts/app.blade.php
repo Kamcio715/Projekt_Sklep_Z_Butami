@@ -27,7 +27,7 @@
             <h1 class="tytul">BUTY.PL</h1>
             <div class="prawo">
                 <img id="searchlogo" src="storage/zdj/lupa.png" alt="searchlogo">
-                <a href="{{ route('cart.index') }}"><img class="koszyk" src="storage/zdj/koszyk.png" alt="koszyk"></a>
+                <a href="{{ route('cart.index') }}"><img class="koszyk" src="storage/zdj/basketicon.png" alt="koszyk"></a>
                 <img class="usericon" src="{{ asset('storage/zdj/user.png') }}" alt="ikona użytkownika">
                 <div class="usermenu" id="usermenu">
                     <a href="{{ route('login') }}">ZALOGUJ SIĘ</a>
