@@ -87,7 +87,7 @@
                 <a href="">Polityka prywatności</a>
                 <a href="">Regulamin</a>
             </div>
-            <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone. Spierdalaj</p>
+            <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone</p>
         </div>
     </footer>
 </body>
