@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function()
 {
     // Zmienne do przechowywania elementów DOM
 
-    const filtr = document.getElementById('szukajinput');
+    const filtr = document.getElementById('searchinput');
     const lista = document.querySelectorAll('.lista li');
     const nazwa = document.querySelectorAll('.nazwa');
     const marka = document.getElementById('marka');
