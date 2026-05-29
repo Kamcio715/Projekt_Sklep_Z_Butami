@@ -1,4 +1,8 @@
-    <header class="header">
+<head>
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<header class="header">
         <div class="logo">
             <img src="img/logo.png" alt="logo strony">
         </div>
