@@ -47,89 +47,90 @@ body {
 .koszyk {
     width: 22px;
 }
-.container{
-    padding: 20px;
-    min-height: calc(100vh - 78px - 250px);
+/* WYŚRODKOWANIE CAŁEGO LOGINU */
+.min-h-screen {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    color: black;
-    background-color: white;
+    min-height: 100vh;
 }
-.form-container {
-    font-weight: bold;
-    font-size: 1em;
-    font-family: "Roboto Condensed", sans-serif;
-    min-height: 325px;
-    height:28em;
-    width: 350px;
-    background-color: white;
+
+/* KARTA LOGOWANIA */
+form {
+    width: 100%;
+    max-width: 380px;
+    background: white;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: stretch;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-.form-header {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.5em;
+
+/* LABEL */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
 }
-.input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.input-container input {
+
+/* INPUTY */
+input[type="email"],
+input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1em;
-    font-family: "Roboto Condensed", sans-serif;
+    border-radius: 6px;
+    font-size: 14px;
 }
-.botton {
-    text-align: center;
-    display: flex;
-    justify-content: center;
+
+/* CHECKBOX */
+input[type="checkbox"] {
+    margin-right: 8px;
 }
-button{
-    font-weight: bold;
-    font-size: 1em;
-    font-family: "Roboto Condensed", sans-serif;
-}
-.submit {
+
+/* PRZYCISK */
+button {
     width: 100%;
     padding: 10px;
     background-color: black;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
-.submit:hover {
+
+button:hover {
     background-color: #333;
 }
-.reset-hasla{
-    padding-top: 15px;
-}
-.reset-hasla,
-.signup {
-    font-size: 1em;
-    text-align: center;
-    line-height: 2em;
-}
-.reset-hasla a,
-.signup a {
+
+/* LINK (reset hasła) */
+a {
+    font-size: 13px;
     color: black;
-    font-weight: bold;
+    text-decoration: none;
 }
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* BŁĘDY */
+.text-red-600 {
+    color: red;
+    font-size: 12px;
+}
+
+/* UKŁAD DOLNY */
+.flex.items-center.justify-end {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+}
+
 .footer {
   background: #111;
   color: #fff;
@@ -186,15 +187,6 @@ button{
     .prawo img,.prawo a {
         height: 40px;
     }
-    .form-container {
-        margin: 20px auto;
-        width: 90%;
-        padding: 25px;
-    }
-    .container {
-        padding: 20px;
-        min-height: calc(100vh - 78px - 250px);
-    }
 }
 @media (max-width: 480px) {
     .tytul {
@@ -207,18 +199,9 @@ button{
         height: 32px;
         width: 32px;
     }
-    .form-container {
-        width: 95%;
+    form {
+        width: 90%;
         padding: 20px;
-        margin-top: 20px;
-    }
-    .input-container input {
-        padding: 12px;
-        font-size: 14px;
-    }
-    .submit {
-        padding: 12px;
-        font-size: 14px;
     }
     .footer {
         height: auto;
