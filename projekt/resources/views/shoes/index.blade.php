@@ -1,19 +1,21 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sklep z butami</title>
-    <link rel="stylesheet" href="Styles/main.css">
-    <link rel="stylesheet" href="Styles/naglowek.css">
-    <script src="Scripts/filtrowanie.js"></script>
+    <title>SKLEP Z BUTAMI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <!-- Nagłówek -->
-    <header class="gora">
-        <div class="logo">
-            <a class="lewo" href="index.html"><img src="Images/logo.png" alt="logo strony"></a>
+    <section class="hero">
+        <div class="heroleft">
+            <h1>„BARDZO DOBRE SUPER BUTY PAPUESZ POLAK POLECA 5/5"</h1>
+            <h1> - GRAŻYNA ŻARKO</h1>
+            <button class="herobtn">ZGARNIJ TERAZ</button>
         </div>
         <h1 class="tytul">Buty.pl</h1>
         <div class="prawo">
@@ -22,86 +24,95 @@
             <a href="koszyk.html"><img class="koszyk" src="Images/koszyk.png" alt="koszyk"></a>
             <a href="uzytkownik.html"><img class="user" src="Images/user.png" alt="ikona użytkownika"></a>
         <!-- CZYTA TO PANI???? JAK NIE TO SIE NIE DZIWIE :) -->
+        <div class="heroimg">
+            <img src="{{ asset('storage/zdj/hero.png') }}" alt="but">
         </div>
-    </header>
-    
-    <!-- Szukanie po nazwie -->
-    <div class="szukaj">
-        <input type="text" class="szukaj_input" id="filtr" placeholder="Wyszukaj swoich wymarzonych butów">
+    </section>
+    <div class="search" id="search">
+        <input type="text" placeholder="Szukaj..." id="searchinput" />
     </div>
-    
-    <!--szukanie po marce-->
-    <h3>Wybierz markę</h3>
-    <select id="marka">
-        <option></option>
-        <option value="Nike">Nike</option>
-        <option value="Adidas">Adidas</option>
-        <option value="Puma">Puma</option>
-        <option value="Champion">Champion</option>
-        <option value="Vans">Vans</option>
-    </select>
-
-    <!--szukanie po kategorii-->
-    <h3>Wybierz kategorię</h3>
-    <select id="kat">
-        <option></option>
-        <option value="mężczyzn">Dla mężczyzn</option>
-        <option value="kobiet">Dla kobiet</option>
-        <option value="dzieci">Dla dzieci</option>
-    </select>
-
-    <!--szukanie po rozdaju-->
-    <h3>Wybierz Rodzaj</h3>
-    <select id="rodz">
-        <option></option>
-        <option value="Sportowe">Sportowe</option>
-        <option value="Eleganckie">Eleganckie</option>
-        <option value="Codzienne">Codzienne</option>
-    </select>
-
-    <!--filtrowanie po cenie-->
-    <h3>Wybierz cene</h3>
-    <div class="cena-container">
-        <div class="cena-input">
-            <div class="przedział-cena">
-                <span>Min.</span>
-                <input type="number" class="min-input" value="69">
-            </div>
-            <div class="przedział-cena">
-                <span>Max.</span>
-                <input type="number" class="Max-input" value="23412">
-            </div>
-        </div>
-        <div class="slider">
-            <div class="div-slider"></div>
-        </div>
-        <!--slider--> <!--https://www.geeksforgeeks.org/javascript/price-range-slider-with-min-max-input-using-html-css-and-javascript/-->
-        <div class="zakres-input">
-            <input type="range" class="min-range" min="0" max="10000" value="3000" step="1">
-            <input type="range" class="max-range" min="0" max="10000" value="6969" step="1">
-        </div>  
-
+    <div class="filtr">
+        <img id="filtricon" src="{{ asset('storage/zdj/filtricon.png') }}" alt="filtricon">
+        <h1 id="filtrbtn">FILTR</h1>
     </div>
-    <!-- Buty -->
-    <div class="widok">
-            <ul class="lista">
-                <li>
-                    <div>
-                        <div>
-                            <img src="images/Carina2.0_01.jpg" alt="but">
-                        </div>
-                        <div>
-                            <h1 class="nazwa">CARINA 2.0</h1>
-                            <h2>Puma</h2>
-                            <h2>339.99 zł</h2>
-                            <h3>Dla kobiet</h3>
-                            <h3>Sportowe</h3>
-                        </div>
-                    </div>
-                </li>
+    <div id="filtrpanel" class="filtrpanel">
+        <div>
+            <img src="img/logo.png" alt="logo strony">
+        </div>
+        <hr>
+        <div class="filtrgrupa">
+            <h1>MARKA</h1>
+            <select id="marka">
+                <option></option>
+                <option value="Nike">Nike</option>
+                <option value="Adidas">Adidas</option>
+                <option value="Puma">Puma</option>
+                <option value="Champion">Champion</option>
+                <option value="Vans">Vans</option>
+            </select>
+        </div>
+        <hr>
+            <div class="filtrgrupa">
+            <h1>KATEGORIA</h1>
+            <select id="kat">
+                <option></option>
+                <option value="mężczyzn">Dla mężczyzn</option>
+                <option value="kobiet">Dla kobiet</option>
+                <option value="dzieci">Dla dzieci</option>
+            </select>
+        </div>
+        <hr>
+        <div class="filtrgrupa">
+            <h1>RODZAJ</h1>
+            <select id="rodz">
+                <option></option>
+                <option value="Sportowe">Sportowe</option>
+                <option value="Eleganckie">Eleganckie</option>
+                <option value="Codzienne">Codzienne</option>
+            </select>
+        </div>
+        <hr>
+    </div>
+    <section class="container">
+        @if($shoes->count())
+            <ul class="grid">
+                @foreach($shoes as $shoe)
+                    <li class="card">
+                        <a href="{{ route('shoes.show', $shoe) }}">
+                            @if($shoe->zdjecie)
+                                <img src="{{ asset('storage/' . $shoe->zdjecie) }}" alt="{{ $shoe->name }}">
+                            @else
+                                <div class="no-image">Brak zdjęcia</div>
+                            @endif
+                            <h4>{{ $shoe->nazwa }}</h4>
+                            <hr>
+                            <div>{{ $shoe->marka }}</div>
+                            <div>{{ number_format($shoe->cena, 2, '.', '') }} zł</div>
+                            <div>{{ $shoe->kategoria }}</div>
+                            <div>{{ $shoe->rodzaj }}</div>
+                            <div>{{ $shoe->rozmiar }}</div>
+                        </a>
+                    </li>
+                @endforeach
             </ul>
-    </div>
-        </footer>
-    <script src="scripts/main.js"></script>
+        @else
+            <div class="brak">
+                Brak produktów spełniających wybrane kryteria.
+            </div>
+        @endif
+    </section>
+    <footer class="footer">
+        <div class="footercontainer">
+            <p class="footertitle">POMOC</p>
+            <hr>
+            <div class="footerlink">
+                <a href="">Skontaktuj się z nami</a>
+                <a href="">Polityka prywatności</a>
+                <a href="">Regulamin</a>
+            </div>
+            <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone</p>
+        </div>
+    </footer>
 </body>
 </html>
+@endsection

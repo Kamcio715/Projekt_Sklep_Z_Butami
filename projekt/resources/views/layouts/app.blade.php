@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <script src="{{ asset('js/filtrowanie.js') }}"></script>
+        <script src="{{ asset('js/panele.js') }}"></script>
+
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -16,17 +19,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
         <header class="header">
             <div class="logo">
-                <img src="{{ asset('storage/zdj/logo.png') }} alt="logo strony">
+                <img src="{{ asset('storage/zdj/logo.png') }}" alt="logo strony">
             </div>
             <h1 class="tytul">BUTY.PL</h1>
             <div class="prawo">
                 <img id="searchlogo" src="storage/zdj/lupa.png" alt="searchlogo">
-                <a href="{{ route('cart.index') }}"><img class="koszyk" src="storage/zdj/koszyk.png" alt="koszyk"></a>
+                <a href="{{ route('cart.index') }}"><img class="koszyk" src="{{ asset('storage/zdj/basketicon.png') }}" alt="koszyk"></a>
                 <img class="usericon" src="{{ asset('storage/zdj/user.png') }}" alt="ikona użytkownika">
                 <div class="usermenu" id="usermenu">
                     <a href="{{ route('login') }}">ZALOGUJ SIĘ</a>
@@ -49,10 +51,5 @@
                 @yield('content')
                 </div>
             </main>
-        </div>
     </body>
 </html>
-
-
-
-JEBAC KURWA ŻYDÓW
