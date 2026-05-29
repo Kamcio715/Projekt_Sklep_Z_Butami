@@ -17,6 +17,13 @@
             <h1> - GRAŻYNA ŻARKO</h1>
             <button class="herobtn">ZGARNIJ TERAZ</button>
         </div>
+        <h1 class="tytul">Buty.pl</h1>
+        <div class="prawo">
+            <button class="rejestracja"><a href="rejestracja.html">Zarejestruj się</a></button>
+            <button class="login"><a href="logowanie.html">Zaloguj się</a></button>
+            <a href="koszyk.html"><img class="koszyk" src="Images/koszyk.png" alt="koszyk"></a>
+            <a href="uzytkownik.html"><img class="user" src="Images/user.png" alt="ikona użytkownika"></a>
+        <!-- CZYTA TO PANI???? JAK NIE TO SIE NIE DZIWIE :) -->
         <div class="heroimg">
             <img src="{{ asset('storage/zdj/hero.png') }}" alt="but">
         </div>
