@@ -31,8 +31,22 @@
                 <a href="{{ route('cart.index') }}"><img class="koszyk" src="{{ asset('storage/zdj/basketicon.png') }}" alt="koszyk"></a>
                 <img class="usericon" src="{{ asset('storage/zdj/user.png') }}" alt="ikona użytkownika">
                 <div class="usermenu" id="usermenu">
-                    <a href="{{ route('login') }}">ZALOGUJ SIĘ</a>
-                    <a href="{{ route('register') }}">ZAREJESTRUJ SIĘ</a>
+                    @auth
+                    <a href="{{ route('profile.edit') }}">Profil</a>
+                    <a class="" href="{{ route('orders.my') }}">Moje zamówienia</a>
+
+                    @if(auth()->user()->is_admin)
+                        <a class="" href="{{ route('admin.shoes.index') }}">Panel admina</a>
+                    @endif
+
+                    <form method="POST" action="{{ route('logout') }}" class="">
+                        @csrf
+                        <button class="">Wyloguj</button>
+                    </form>
+                    @else
+                        <a class="" href="{{ route('login') }}">Logowanie</a>
+                        <a class="" href="{{ route('register') }}">Rejestracja</a>
+                    @endauth
                 </div>
             </div>
         </header>
