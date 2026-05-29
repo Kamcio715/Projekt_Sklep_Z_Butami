@@ -32,17 +32,17 @@
                 <img class="usericon" src="{{ asset('storage/zdj/user.png') }}" alt="ikona użytkownika">
                 <div class="usermenu" id="usermenu">
                     @auth
-                    <a href="{{ route('profile.edit') }}">Profil</a>
-                    <a class="" href="{{ route('orders.my') }}">Moje zamówienia</a>
+                        <a href="{{ route('profile.edit') }}">Profil</a>
+                        <a class="" href="{{ route('orders.my') }}">Moje zamówienia</a>
 
-                    @if(auth()->user()->is_admin)
-                        <a class="" href="{{ route('admin.shoes.index') }}">Panel admina</a>
-                    @endif
+                        @if(auth()->user()->is_admin)
+                            <a class="" href="{{ route('admin.shoes.index') }}">Panel admina</a>
+                        @endif
 
-                    <form method="POST" action="{{ route('logout') }}" class="">
-                        @csrf
-                        <button class="">Wyloguj</button>
-                    </form>
+                        <form method="POST" action="{{ route('logout') }}" class="">
+                            @csrf
+                            <button class="">Wyloguj</button>
+                        </form>
                     @else
                         <a class="" href="{{ route('login') }}">Logowanie</a>
                         <a class="" href="{{ route('register') }}">Rejestracja</a>

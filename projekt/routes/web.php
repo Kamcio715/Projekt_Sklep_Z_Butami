@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShoeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 
 // Strona główna sklepu
 Route::get('/', [ShoeController::class, 'index'])->name('shoes.index');
@@ -26,11 +26,10 @@ Route::get('/dashboard', function () {
 // Trasy dla realizacji zamówienia
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index'); // Wyświetlanie strony realizacji zamówienia
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store'); // Przetwarzanie zamówienia
-Route::get('/my-orders', [CheckoutController::class, 'myOrders'])->name('orders.my'); // Wyświetlanie zamówień użytkownika
 
 // Trasy dla profilu użytkownika
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/my-orders', [CheckoutController::class, 'myOrders'])->name('orders.index'); // Wyświetlanie zamówień użytkownika
+    Route::get('/my-orders', [CheckoutController::class, 'myOrders'])->name('orders.my'); // Wyświetlanie zamówień użytkownika
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit'); // Edycja profilu
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update'); // Aktualizacja profilu
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); // Usuwanie konta
