@@ -79,6 +79,13 @@ class ShoeController extends Controller
     {
         return view('shoes.show', compact('shoe'));
     }
+    
+    // Wyświetlanie listy butów w panelu administratora
+    public function adminIndex()
+    {
+        $shoes = Shoe::all();
+        return view('admin.shoes.index', compact('shoes'));
+    }
 
     /**
      * Edycja istniejącego buta
