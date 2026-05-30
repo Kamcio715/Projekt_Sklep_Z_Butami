@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <script src="{{ asset('js/filtrowanie.js') }}"></script>
     <script src="{{ asset('js/panele.js') }}"></script>
+    
 
 
     <title>{{ config('app.name', 'Laravel') }}</title>

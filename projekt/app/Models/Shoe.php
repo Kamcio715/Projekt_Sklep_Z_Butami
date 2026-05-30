@@ -3,18 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Shoe extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
-        'nazwa',
-        'marka',
-        'kategoria',
-        'rodzaj',
-        'rozmiar',
-        'cena',
-        'kolor',
-        'opis',
-        'zdjecie',
+        'name',
+        'description',
+        'price',
+        'brand',
+        'category',
+        'type',
+        'size',
+        'color',
+        'image',
     ];
 }

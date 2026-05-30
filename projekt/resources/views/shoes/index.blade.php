@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body> -->
     <section class="hero">
         <div class="heroleft">
             <h1>„BARDZO DOBRE SUPER BUTY PAPUESZ POLAK POLECA 5/5"</h1>
@@ -37,11 +37,11 @@
             <h1>MARKA</h1>
             <select id="marka">
                 <option></option>
-                <option value="Nike">Nike</option>
-                <option value="Adidas">Adidas</option>
-                <option value="Puma">Puma</option>
-                <option value="Champion">Champion</option>
-                <option value="Vans">Vans</option>
+                @foreach($brands as $brand)
+                    <option value="{{ $brand -> brand }}" {{ request('brand') == $brand -> brand ? 'selected' : '' }}>
+                        {{ $brand -> brand }} ({{ $brand -> total }})
+                    </option>
+                @endforeach
             </select>
         </div>
         <hr>
@@ -49,9 +49,11 @@
             <h1>KATEGORIA</h1>
             <select id="kat">
                 <option></option>
-                <option value="mężczyzn">Dla mężczyzn</option>
-                <option value="kobiet">Dla kobiet</option>
-                <option value="dzieci">Dla dzieci</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category -> category }}" {{ request('category') == $category -> category ? 'selected' : '' }}>
+                        {{ $category -> category }} ({{ $category -> total }})
+                    </option>
+                @endforeach
             </select>
         </div>
         <hr>
@@ -59,9 +61,11 @@
             <h1>RODZAJ</h1>
             <select id="rodz">
                 <option></option>
-                <option value="Sportowe">Sportowe</option>
-                <option value="Eleganckie">Eleganckie</option>
-                <option value="Codzienne">Codzienne</option>
+                @foreach($types as $type)
+                    <option value="{{ $type -> type }}" {{ request('type') == $type -> type ? 'selected' : '' }}>
+                        {{ $type -> type }} ({{ $type -> total }})
+                    </option>
+                @endforeach
             </select>
         </div>
         <hr>
@@ -106,6 +110,4 @@
             <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone</p>
         </div>
     </footer>
-</body>
-</html>
 @endsection
