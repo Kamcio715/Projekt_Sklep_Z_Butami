@@ -56,7 +56,15 @@ class ShoeController extends Controller
 
     public function show(Shoe $shoe)
     {
-        return view('shoes.show', compact('shoe'));
+        $shoe->load('reviews.user');
+
+        $recommendedShoes = Shoe::where('category', $shoe->category)
+            ->where('id', '!=', $shoe->id)
+            ->latest()
+            ->take(4)
+            ->get();
+
+        return view('shoes.show', compact('shoe', 'recommendedShoes'));
 
     }
 
