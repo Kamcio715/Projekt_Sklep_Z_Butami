@@ -32,8 +32,8 @@ return new class extends Migration
             if (Schema::hasColumn('shoes', 'rodzaj')) {
                 $table->renameColumn('rodzaj', 'type');
             }
-            
-            if (Schema::hasColumn('shoes', 'color')) {
+
+            if (Schema::hasColumn('shoes', 'kolor')) {
                 $table->renameColumn('kolor', 'color');
             }
 
