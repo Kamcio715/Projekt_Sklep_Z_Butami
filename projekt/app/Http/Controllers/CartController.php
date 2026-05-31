@@ -62,7 +62,7 @@ class CartController extends Controller
                 'description' => $shoe->description,
                 'type' => $shoe->type,
                 'price' => $shoe->price,
-                'quantity' => $newQuantity,
+                'quantity' => $quantity,
                 'stock' => $shoe->stock,
                 'image' => $shoe->image,
             ];

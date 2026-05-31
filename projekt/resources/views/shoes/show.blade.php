@@ -34,14 +34,28 @@
             <div class="product__price">
                 {{ number_format($shoe->price, 2, ',', ' ') }} PLN
             </div>
+            <p>Stan magazynowy: {{ $shoe->stock }}</p>
 
             <div class="product__sizes" style="margin: 15px 0;">
                 <strong>Rozmiar:</strong> {{ $shoe->size ?? 'brak danych' }}
             </div>
 
-            <form action="{{ route('cart.add', $shoe) }}" method="POST">
+            <form action="{{ route('cart.add', $shoe) }}" method="POST" class="mt-3">
                 @csrf
-                <button class="btn-primary" type="submit">Dodaj do koszyka</button>
+
+                <div class="d-flex gap-2 align-items-center">
+                    <input
+                        type="number"
+                        name="quantity"
+                        value="1"
+                        min="1"
+                        class="form-control"
+                        style="width: 90px;"
+                        required
+                    >
+
+                    <button class="btn-primary" type="submit">Dodaj do koszyka</button>
+                </div>
             </form>
 
             <div style="margin-top: 15px;">
