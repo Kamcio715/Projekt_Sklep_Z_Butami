@@ -1,16 +1,4 @@
-<head>
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<header class="header">
-        <div class="logo">
-            <img src="img/logo.png" alt="logo strony">
-        </div>
-        <h1 class="tytul">BUTY.PL</h1>
-        <div class="prawo">
-            <a href="koszyk.html"><img class="koszyk" src="img/basketicon.png" alt="koszyk"></a>
-        </div>
-    </header>
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -58,15 +46,3 @@
         </div>
     </form>
 </x-guest-layout>
-    <footer class="footer">
-        <div class="footercontainer">
-            <p class="footertitle">POMOC</p>
-            <hr>
-            <div class="footerlink">
-                <a href="">Skontaktuj się z nami</a>
-                <a href="">Polityka prywatności</a>
-                <a href="">Regulamin</a>
-            </div>
-            <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone. Spierdalaj</p>
-        </div>
-    </footer>

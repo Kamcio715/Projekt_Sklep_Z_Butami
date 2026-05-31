@@ -1,8 +1,89 @@
-/* TŁO */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-    background-color: #f3f3f3;
+    font-family: "Roboto Condensed", sans-serif;
+    background: #fff;
+    color: #111;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+    background-color: black;
+    color: white;
+    position: static;
+    width: 100%;
+    z-index: 1000;
+    height: 10vh;
+    min-height: 78px;
+}
+.logo img{
+    height: 83px;
+    box-sizing: border-box;
+}
+.logo{
+    height: auto;
+}
+.tytul {
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.prawo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.usericon, #searchlogo, .prawo a img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+.usermenu {
+    position: absolute;
+    right: 0;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px 0;
+    width: 160px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 0.3s;
 }
 
+.usermenu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.usermenu a:hover {
+    cursor: pointer;
+}
+
+.usermenu.active {
+    opacity: 1;
+    top: 10vh;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.koszyk, .user {
+    width: 22px;
+}
 /* TYTUŁ */
 .h1 {
     text-align: center;
@@ -10,9 +91,6 @@ body {
     color: black;
 }
 /* PUSTY KOSZYK */
-.header {
-    position: static !important;
-}
 
 .alert-info {
     width: 500px;

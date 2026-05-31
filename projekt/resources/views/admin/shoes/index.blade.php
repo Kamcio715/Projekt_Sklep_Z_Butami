@@ -1,5 +1,6 @@
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 <main class="admin-main">
-    @section('content')
 
     <h1>Panel admina</h1>
 
@@ -21,6 +22,5 @@
             @endforeach
         </tbody>
     </table>
-
-    @endsection
 </main>
+@endsection

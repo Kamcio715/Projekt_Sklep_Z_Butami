@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="{{ asset('css/admin-edit.css') }}">
 <main class="edit-main">
     <h1>Edytuj but</h1>
 
