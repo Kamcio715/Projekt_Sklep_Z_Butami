@@ -2,24 +2,29 @@
 
 @section('content')
     <title>Koszyk</title>
-</head>
-<body>
+    <h1 class="mb-4 h1">Koszyk</h1>
 
-  <header>
-    <h1>Koszyk</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Strona główna</a></li>
-        <li><a href="koszyk.html">Koszyk</a></li>
-        <li><a href=" {{ route('checkout.index') }} ">Podsumowanie</a></li>
-      </ul>
-    </nav>
-    <hr>
-  </header>
+    <!-- @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif -->
 
-  <main>
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
 
-    <h2>Produkty w koszyku</h2>
+    @if(empty($cart))
+        <div class="alert alert-info">
+            Koszyk jest pusty.
+        </div>
+    @else
+        <form action="{{ route('cart.clear') }}" method="POST" class="mb-3">
+            @csrf
+            <button type="submit" class="btn btn-outline-danger">Wyczyść koszyk</button>
+        </form>
 
         <div class="table-responsive">
             <table class="table table-bordered align-middle">
@@ -80,4 +85,5 @@
                 Przejdź do zamówienia
             </a>
         </div>
+    @endif
 @endsection
