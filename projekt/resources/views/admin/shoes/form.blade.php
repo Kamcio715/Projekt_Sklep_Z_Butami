@@ -1,14 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/admin-form.css') }}">
+</head>
+<body>
+    @extends('layouts.app')
 
-<link rel="stylesheet" href="{{ asset('css/admin-form.css') }}">
-<main class="form-main">
-    <form class="admin-form" action="{{ route('admin.shoes.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
+    @section('content')
+    @csrf
 
-        {{-- FORM FIELDS --}}
-        <input type="text" name="name" placeholder="Nazwa">
-        <input type="text" name="brand" placeholder="Marka">
-        <input type="number" name="price" placeholder="Cena">
+    <div class="mb-3">
+        <label class="form-label">Nazwa</label>
+        <input type="text" name="name" value="{{ old('name', $shoe->name ?? '') }}"
+            class="form-control @error('name') is-invalid @enderror">
+        @error('name')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
 
-        <button>Zapisz</button>
-    </form>
-</main>
+    <div class="mb-3">
+        <label class="form-label">Marka</label>
+        <input type="text" name="brand" value="{{ old('brand', $shoe->brand ?? '') }}"
+            class="form-control @error('brand') is-invalid @enderror">
+        @error('brand')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Kategoria</label>
+        <select name="category" class="form-select">
+            <option value="">Wybierz</option>
+            <option value="Dla mężczyzn" @selected(old('category', $shoe->category ?? '') == 'Dla mężczyzn')>Dla mężczyzn</option>
+            <option value="Dla kobiet" @selected(old('category', $shoe->category ?? '') == 'Dla kobiet')>Dla kobiet</option>
+            <option value="Dla dzieci" @selected(old('category', $shoe->category ?? '') == 'Dla dzieci')>Dla dzieci</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Rodzaj</label>
+        <select name="type" class="form-select">
+            <option value="">Wybierz</option>
+            <option value="Sportowe" @selected(old('type', $shoe->type ?? '') == 'Sportowe')>Sportowe</option>
+            <option value="Eleganckie" @selected(old('type', $shoe->type ?? '') == 'Eleganckie')>Eleganckie</option>
+            <option value="Codzienne" @selected(old('type', $shoe->type ?? '') == 'Codzienne')>Codzienne</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Rozmiar</label>
+        <input type="number" step="0.5" name="size" value="{{ old('size', $shoe->size ?? '') }}"
+            class="form-control @error('size') is-invalid @enderror">
+        @error('size')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Cena</label>
+        <input type="number" step="0.01" name="price" value="{{ old('price', $shoe->price ?? '') }}"
+            class="form-control @error('price') is-invalid @enderror">
+        @error('price')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Kolor</label>
+        <input type="text" name="color" value="{{ old('color', $shoe->color ?? '') }}"
+            class="form-control @error('color') is-invalid @enderror">
+        @error('color')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Opis</label>
+        <textarea name="description" rows="4"
+                class="form-control @error('description') is-invalid @enderror">{{ old('description', $shoe->description ?? '') }}</textarea>
+        @error('description')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Ilość na stanie</label>
+        <input type="number" name="stock" value="{{ old('stock', $shoe->stock ?? '') }}"
+            class="form-control @error('stock') is-invalid @enderror">
+        @error('stock')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Zdjęcie</label>
+        <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
+        @error('image')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+
+        @if(!empty($shoe?->image))
+            <div class="mt-3">
+                <img src="{{ asset('storage/' . $shoe->image) }}"
+                    alt="{{ $shoe->name }}"
+                    style="width: 150px; height: 150px; object-fit: cover;"
+                    class="rounded">
+            </div>
+        @endif
+    </div>
+    @endsection
+</body>
+</html>
