@@ -26,88 +26,103 @@
 
 <main class="container">
 
-<section class="product">
+    <section class="product">
 
-    <div class="product__image">
-        <img src="img/1krokslidlowy.png" alt="But">
-    </div>
-
-    <div class="product__info">
-
-        <p class="product__brand">Marka</p>
-        <h2 class="product__title">Nazwa buta</h2>
-        <div class="product__rating">★★★★★</div>
-
-        <div class="product__colors">
-            <label>
-                <input type="radio" name="color">
-                <img src="img/1krokslidlowy(1).png" alt="Kolor 1">
-            </label>
-
-            <label>
-                <input type="radio" name="color">
-                <img src="img/1krokslidlowy(1).png" alt="Kolor 2">
-            </label>
+        <div class="product__image">
+            @if($shoe->image)
+                <img src="{{ asset('storage/' . $shoe->image) }}"
+                    alt="{{ $shoe->name }}"
+                    style="max-width: 100%; height: auto; border-radius: 8px;">
+            @else
+                <div>Brak zdjęcia</div>
+            @endif
         </div>
 
-        <div class="product__price">21,37 PLN</div>
+        <div class="product__info">
+            <h2 class="product__title">{{ $shoe -> name }}</h2>
 
-        <div class="product__sizes">
-            <label><input type="radio" name="size">36</label>
-            <label><input type="radio" name="size">37</label>
-            <label><input type="radio" name="size">38</label>
-            <label><input type="radio" name="size">39</label>
+            <p class="product__brand">{{ $shoe -> brand }}</p>
+            @if($shoe->category)
+                    <span class="badge bg-secondary me-2">{{ $shoe->category }}</span>
+                @endif
+                @if($shoe->type)
+                    <span class="badge bg-secondary">{{ $shoe->type }}</span>
+                @endif
+            <div class="product__rating">★★★★★</div>
+
+            <div class="product__colors">
+                <label>
+                    <input type="radio" name="color">
+                    <img src="img/1krokslidlowy(1).png" alt="Kolor 1">
+                </label>
+
+                <label>
+                    <input type="radio" name="color">
+                    <img src="img/1krokslidlowy(1).png" alt="Kolor 2">
+                </label>
+            </div>
+
+            <div class="product__price">{{ number_format($shoe->price, 2, ',', ' ') }} PLN</div>
+
+            <div class="product__sizes">
+                <label><input type="radio" name="size">36</label>
+                <label><input type="radio" name="size">37</label>
+                <label><input type="radio" name="size">38</label>
+                <label><input type="radio" name="size">39</label>
+            </div>
+
+            <form action="{{ route('cart.add', $shoe) }}" method="POST">
+                @csrf
+                <button type="submit">Dodaj do koszyka</button>
+            </form>
+
+            <div class="product__delivery">
+                <p>Dostawa: InPost 2.99 zł</p>
+                <p>Zwrot: 14 dni</p>
+            </div>
+
         </div>
 
-        <button class="btn-primary">Dodaj do koszyka</button>
+    </section>
 
-        <div class="product__delivery">
-            <p>Dostawa: InPost 2.99 zł</p>
-            <p>Zwrot: 14 dni</p>
+    <section class="accordion">
+        <details>
+            <summary>Informacje o produkcie</summary>
+            <p>Opis produktu...</p>
+        </details>
+
+        <details>
+            <summary>Opinie</summary>
+            <p>Brak opinii</p>
+        </details>
+    </section>
+
+    <section class="recommended">
+        <h3>Polecane produkty</h3>
+
+        <div class="recommended__grid">
+            <div class="card">
+                <img src="img/1krokslidlowy(1).png">
+                <p>But 1</p>
+                <span>29,99 zł</span>
+            </div>
+            <div class="card">
+                <img src="img/1krokslidlowy(1).png">
+                <p>But 1</p>
+                <span>29,99 zł</span>
+            </div>
+            <div class="card">
+                <img src="img/1krokslidlowy(1).png">
+                <p>But 1</p>
+                <span>29,99 zł</span>
+            </div>
+            <div class="card">
+                <img src="img/1krokslidlowy(1).png">
+                <p>But 1</p>
+                <span>29,99 zł</span>
+            </div>
         </div>
-
-    </div>
-
-</section>
-
-<section class="accordion">
-    <details>
-        <summary>Informacje o produkcie</summary>
-        <p>Opis produktu...</p>
-    </details>
-
-    <details>
-        <summary>Opinie</summary>
-        <p>Brak opinii</p>
-    </details>
-</section>
-
-<section class="recommended">
-    <h3>Polecane produkty</h3>
-
-    <div class="recommended__grid">
-        <div class="card">
-            <img src="img/1krokslidlowy(1).png">
-            <p>But 1</p>
-            <span>29,99 zł</span>
-        </div>
-        <div class="card">
-            <img src="img/1krokslidlowy(1).png">
-            <p>But 1</p>
-            <span>29,99 zł</span>
-        </div>
-        <div class="card">
-            <img src="img/1krokslidlowy(1).png">
-            <p>But 1</p>
-            <span>29,99 zł</span>
-        </div>
-        <div class="card">
-            <img src="img/1krokslidlowy(1).png">
-            <p>But 1</p>
-            <span>29,99 zł</span>
-        </div>
-    </div>
-</section>
+    </section>
 
 </main>
 

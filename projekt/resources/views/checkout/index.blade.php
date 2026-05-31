@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Podsumowanie zamówienia</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
 
   <header>
     <h1>Podsumowanie zamówienia</h1>
@@ -485,5 +479,4 @@
     <p>&copy; 2025 Sklep internetowy. Wszelkie prawa zastrzeżone.</p>
   </footer>
 
-</body>
-</html>
+@endsection
