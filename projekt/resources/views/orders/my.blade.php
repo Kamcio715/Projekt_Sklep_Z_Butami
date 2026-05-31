@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <h1 class="">Moje zamówienia</h1>
 
 @if($orders->count() === 0)

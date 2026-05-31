@@ -1,5 +1,6 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/admin-create.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <main class="admin-create">
     <h1>Dodaj but</h1>
 
