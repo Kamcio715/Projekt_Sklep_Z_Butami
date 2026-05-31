@@ -4,11 +4,11 @@
     <title>Koszyk</title>
     <h1 class="mb-4 h1">Koszyk</h1>
 
-    <!-- @if(session('success'))
+    @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
-    @endif -->
+    @endif
 
     @if(session('error'))
         <div class="alert alert-danger">
