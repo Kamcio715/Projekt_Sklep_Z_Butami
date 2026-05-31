@@ -62,10 +62,22 @@
                 <strong>Rozmiar:</strong> {{ $shoe->size ?? 'brak danych' }}
             </div>
 
-            <form action="{{ route('cart.add', $shoe) }}" method="POST">
-                @csrf
-                <button type="submit">Dodaj do koszyka</button>
-            </form>
+            <form action="{{ route('cart.add', $shoe) }}" method="POST" class="mt-4">
+                    @csrf
+                    <div class="d-flex gap-2">
+                        <input
+                            type="number"
+                            name="quantity"
+                            value="1"
+                            min="1"
+                            class="form-control"
+                            style="width: 90px;"
+                            required
+                        >
+
+                        <button class="btn btn-success">Dodaj do koszyka</button>
+                    </div>
+                </form>
 
             <div style="margin-top: 15px;">
                 <a href="{{ route('cart.index') }}">Przejdź do koszyka</a>
