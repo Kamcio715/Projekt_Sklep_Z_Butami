@@ -76,18 +76,18 @@
                 @foreach($shoes as $shoe)
                     <li class="card">
                         <a href="{{ route('shoes.show', $shoe) }}">
-                            @if($shoe->zdjecie)
-                                <img src="{{ asset('storage/' . $shoe->zdjecie) }}" alt="{{ $shoe->name }}">
+                            @if($shoe->image)
+                                <img src="{{ asset('storage/' . $shoe->image) }}" alt="{{ $shoe->name }}">
                             @else
                                 <div class="no-image">Brak zdjęcia</div>
                             @endif
-                            <h4>{{ $shoe->nazwa }}</h4>
+                            <h4>{{ $shoe->name }}</h4>
                             <hr>
-                            <div>{{ $shoe->marka }}</div>
-                            <div>{{ number_format($shoe->cena, 2, '.', '') }} zł</div>
-                            <div>{{ $shoe->kategoria }}</div>
-                            <div>{{ $shoe->rodzaj }}</div>
-                            <div>{{ $shoe->rozmiar }}</div>
+                            <div>{{ $shoe->brand }}</div>
+                            <div>{{ number_format($shoe->price, 2, '.', '') }} zł</div>
+                            <div>{{ $shoe->category }}</div>
+                            <div>{{ $shoe->type }}</div>
+                            <div>{{ $shoe->size }}</div>
                         </a>
                     </li>
                 @endforeach
