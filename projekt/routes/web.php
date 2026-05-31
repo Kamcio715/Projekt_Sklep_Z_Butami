@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ShoeController::class, 'index'])->name('shoes.index');
 
 // Widok pojedynczego buta
-Route::get('/shoes/{shoe}', [ShoeController::class, 'show'])->name('shoes.widok');
+Route::get('/shoes/{shoe}', [ShoeController::class, 'show'])->name('shoes.show');
 
 // Trasy dla koszyka
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index'); // Wyświetlanie zawartości koszyka
