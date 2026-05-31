@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="{{ asset('css/admin-form.css') }}">
 </head>
 <body>
-    @extends('layouts.app')
-
-    @section('content')
     @csrf
 
     <div class="mb-3">
@@ -111,6 +108,5 @@
             </div>
         @endif
     </div>
-    @endsection
 </body>
 </html>

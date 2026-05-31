@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/admin-edit.css') }}">
+@extends('layouts.app')
+
+@section('content')
 <main class="edit-main">
     <h1>Edytuj but</h1>
 
@@ -7,7 +10,8 @@
         @method('PUT')
         @include('admin.shoes.form', ['shoe' => $shoe])
 
-        <button>Zapisz zmiany</button>
-        <a href="{{ route('admin.shoes.index') }}">Anuluj</a>
+        <button class="save">Zapisz zmiany</button>
+        <a class="save" href="{{ route('admin.shoes.index') }}">Anuluj</a>
     </form>
 </main>
+@endsection
