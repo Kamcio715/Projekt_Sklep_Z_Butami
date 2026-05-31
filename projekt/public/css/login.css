@@ -1,15 +1,16 @@
-* {
+        * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body {
     font-family: "Roboto Condensed", sans-serif;
-    color: white;
+    color: black;
     background-color: white;
     padding-top: 80px;
 }
 .header {
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,7 +84,9 @@ input[type="password"] {
     border-radius: 6px;
     font-size: 14px;
 }
-
+input, textarea {
+    color: black;
+}
 /* CHECKBOX */
 input[type="checkbox"] {
     margin-right: 8px;
