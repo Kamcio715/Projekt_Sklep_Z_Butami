@@ -1,30 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('styles/produkt.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-<header class="header">
-    <div class="logo">
-        <img src="{{ asset('img/logo.png') }}" alt="logo strony">
-    </div>
-
-    <h1 class="tytul">BUTY.PL</h1>
-
-    <div class="prawo">
-        <a href="{{ route('cart.index') }}">
-            <img class="koszyk" src="{{ asset('img/basketicon.png') }}" alt="koszyk">
-        </a>
-
-        <img class="usericon" src="{{ asset('img/usericon.png') }}" alt="ikona użytkownika">
-
-        <div class="usermenu" id="usermenu">
-            <a href="{{ route('login') }}">ZALOGUJ SIĘ</a>
-            <a href="{{ route('register') }}">ZAREJESTRUJ SIĘ</a>
-        </div>
-    </div>
-</header>
-
 <main class="container">
     <section class="product">
         <div class="product__image">
@@ -62,22 +39,10 @@
                 <strong>Rozmiar:</strong> {{ $shoe->size ?? 'brak danych' }}
             </div>
 
-            <form action="{{ route('cart.add', $shoe) }}" method="POST" class="mt-4">
-                    @csrf
-                    <div class="d-flex gap-2">
-                        <input
-                            type="number"
-                            name="quantity"
-                            value="1"
-                            min="1"
-                            class="form-control"
-                            style="width: 90px;"
-                            required
-                        >
-
-                        <button class="btn btn-success">Dodaj do koszyka</button>
-                    </div>
-                </form>
+            <form action="{{ route('cart.add', $shoe) }}" method="POST">
+                @csrf
+                <button class="btn-primary" type="submit">Dodaj do koszyka</button>
+            </form>
 
             <div style="margin-top: 15px;">
                 <a href="{{ route('cart.index') }}">Przejdź do koszyka</a>

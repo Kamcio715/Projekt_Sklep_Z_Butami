@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/product.css') }}">
     <script src="{{ asset('js/filtrowanie.js') }}"></script>
     <script src="{{ asset('js/panele.js') }}"></script>
     
