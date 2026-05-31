@@ -23,9 +23,9 @@
 <body>
     <header class="header">
         <div class="logo">
-            <img src="{{ asset('storage/zdj/logo.png') }}" alt="logo strony">
+            <a href=" {{ route('shoes.index') }} "><img src="{{ asset('storage/zdj/logo.png') }}" alt="logo strony"></a>
         </div>
-        <h1 class="tytul">BUTY.PL</h1>
+        <a href="{{ route('shoes.index') }}"><h1 class="tytul">BUTY.PL</h1></a>
         <div class="prawo">
             <img id="searchlogo" src="storage/zdj/lupa.png" alt="searchlogo">
             <a href="{{ route('cart.index') }}"><img class="koszyk" src="{{ asset('storage/zdj/basketicon.png') }}" alt="koszyk"></a>
