@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <section class="hero">
@@ -73,17 +74,17 @@
                     <li class="card">
                         <a href="{{ route('shoes.show', $shoe) }}">
                             @if($shoe->zdjecie)
-                                <img src="{{ asset('storage/' . $shoe->zdjecie) }}" alt="{{ $shoe->name }}">
+                                <img src="{{ asset('storage/' . $shoe->image) }}" alt="{{ $shoe->name }}">
                             @else
                                 <div class="no-image">Brak zdjęcia</div>
                             @endif
-                            <h4>{{ $shoe->nazwa }}</h4>
+                            <h4>{{ $shoe->name }}</h4>
                             <hr>
-                            <div>{{ $shoe->marka }}</div>
-                            <div>{{ number_format($shoe->cena, 2, '.', '') }} zł</div>
-                            <div>{{ $shoe->kategoria }}</div>
-                            <div>{{ $shoe->rodzaj }}</div>
-                            <div>{{ $shoe->rozmiar }}</div>
+                            <div>{{ $shoe->brand }}</div>
+                            <div>{{ number_format($shoe->price, 2, '.', '') }} zł</div>
+                            <div>{{ $shoe->category }}</div>
+                            <div>{{ $shoe->type }}</div>
+                            <div>{{ $shoe->size }}</div>
                         </a>
                     </li>
                 @endforeach
