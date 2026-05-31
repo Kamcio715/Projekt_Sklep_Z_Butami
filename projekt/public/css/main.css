@@ -43,7 +43,6 @@ body {
 }
 .usermenu {
     position: absolute;
-    top: -10vh;
     right: 0;
     background: rgb(0, 0, 0);
     color: rgb(255, 255, 255);

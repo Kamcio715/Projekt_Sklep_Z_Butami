@@ -6,7 +6,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/product.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin-create.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin-edit.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin-form.css') }}">
     <script src="{{ asset('js/filtrowanie.js') }}"></script>
     <script src="{{ asset('js/panele.js') }}"></script>
     
@@ -23,7 +26,7 @@
 
     <!-- Scripts -->
 </head>
-<body class="font-sans antialiased">
+<body>
     <header class="header">
         <div class="logo">
             <img src="{{ asset('storage/zdj/logo.png') }}" alt="logo strony">
