@@ -26,7 +26,6 @@
         <input type="text" placeholder="Szukaj..." id="searchinput" />
     </div>
     <div class="filtr">
-        <img id="filtricon" src="{{ asset('storage/zdj/filtricon.png') }}" alt="filtricon">
         <h1 id="filtrbtn">FILTR</h1>
     </div>
     <div id="filtrpanel" class="filtrpanel">
