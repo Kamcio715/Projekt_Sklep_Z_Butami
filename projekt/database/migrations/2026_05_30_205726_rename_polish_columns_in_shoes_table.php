@@ -32,6 +32,10 @@ return new class extends Migration
             if (Schema::hasColumn('shoes', 'rodzaj')) {
                 $table->renameColumn('rodzaj', 'type');
             }
+            
+            if (Schema::hasColumn('shoes', 'color')) {
+                $table->renameColumn('kolor', 'color');
+            }
 
             if (Schema::hasColumn('shoes', 'rozmiar')) {
                 $table->renameColumn('rozmiar', 'size');
@@ -68,6 +72,10 @@ return new class extends Migration
 
             if (Schema::hasColumn('shoes', 'type')) {
                 $table->renameColumn('type', 'rodzaj');
+            }
+
+            if (Schema::hasColumn('shoes', 'color')) {
+                $table->renameColumn('color', 'kolor');
             }
 
             if (Schema::hasColumn('shoes', 'size')) {
