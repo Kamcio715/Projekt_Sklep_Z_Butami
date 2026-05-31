@@ -51,7 +51,7 @@ body {
     width: 160px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-100px);
     transition: 0.3s;
 }
 
