@@ -26,7 +26,7 @@
 
     <!-- Scripts -->
 </head>
-<body class="font-sans antialiased">
+<body>
     <header class="header">
         <div class="logo">
             <img src="{{ asset('storage/zdj/logo.png') }}" alt="logo strony">

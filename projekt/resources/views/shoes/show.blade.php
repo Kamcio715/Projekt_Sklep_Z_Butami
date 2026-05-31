@@ -2,6 +2,7 @@
 
 @section('content')
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/product.css') }}">
 <main class="container">
     <section class="product">
         <div class="product__image">
@@ -53,7 +54,8 @@
                         style="width: 90px;"
                         required
                     >
-
+                </div>
+                <div class="d-flex gap-2 align-items-center">
                     <button class="btn-primary" type="submit">Dodaj do koszyka</button>
                 </div>
             </form>
