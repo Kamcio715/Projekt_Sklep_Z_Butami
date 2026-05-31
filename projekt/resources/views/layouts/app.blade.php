@@ -29,7 +29,7 @@
         <div class="prawo">
             <img id="searchlogo" src="storage/zdj/lupa.png" alt="searchlogo">
             <a href="{{ route('cart.index') }}"><img class="koszyk" src="{{ asset('storage/zdj/basketicon.png') }}" alt="koszyk"></a>
-            <img class="usericon" src="{{ asset('storage/zdj/user.png') }}" alt="ikona użytkownika">
+            <img class="usericon" src="{{ asset('storage/zdj/usericon.png') }}" alt="ikona użytkownika">
             <div class="usermenu" id="usermenu">
                 @auth
                     <a href="{{ route('profile.edit') }}">Profil</a>
