@@ -84,9 +84,6 @@ input[type="password"] {
     border-radius: 6px;
     font-size: 14px;
 }
-input, textarea {
-    color: black;
-}
 /* CHECKBOX */
 input[type="checkbox"] {
     margin-right: 8px;
