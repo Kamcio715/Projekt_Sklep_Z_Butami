@@ -1,7 +1,8 @@
+
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+<link rel="stylesheet" href="{{ asset('css/cart.css') }}">    
     <title>Koszyk</title>
     <h1 class="mb-4 h1">Koszyk</h1>
 
@@ -22,11 +23,6 @@
             Koszyk jest pusty.
         </div>
     @else
-        <form action="{{ route('cart.clear') }}" method="POST" class="mb-3">
-            @csrf
-            <button type="submit" class="btn btn-outline-danger">Wyczyść koszyk</button>
-        </form>
-
         <div class="table-responsive">
             <table class="table table-bordered align-middle">
                 <thead>
@@ -52,15 +48,14 @@
                             <td>{{ $item['type'] ?? '-' }}</td>
                             <td>{{ number_format($item['price'], 2, ',', ' ') }} zł</td>
                             <td>
-                                <form action="{{ route('cart.update', $item['id']) }}" method="POST" class="d-flex gap-2">
+                                <form action="{{ route('cart.update', $item['id']) }}" method="POST" class="d-flex gap-2 justify-content-center">
                                     @csrf
                                     <input
                                         type="number"
                                         name="quantity"
                                         value="{{ $item['quantity'] }}"
                                         min="1"
-                                        class="form-control"
-                                        style="width: 90px;"
+                                        class="form-control quantity-input"
                                         required
                                     >
                                     <button type="submit" class="btn btn-primary btn-sm">Zmień</button>
@@ -79,12 +74,21 @@
             </table>
         </div>
 
-        <h2 class="mt-4">Razem: {{ number_format($total, 2, ',', ' ') }} zł</h2>
+        <div class="cart-bottom">
+            <div class="cart-summary">
+                <h2>Razem: {{ number_format($total, 2, ',', ' ') }} zł</h2>
 
-        <div class="mt-3 d-flex justify-content-end">
-            <a href="{{ route('checkout.index') }}" class="btn btn-success">
-                Przejdź do zamówienia
-            </a>
+                <form action="{{ route('cart.clear') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-danger">
+                        Wyczyść koszyk
+                    </button>
+                </form>
+
+                <a href="{{ route('checkout.index') }}" class="btn btn-success">
+                    Przejdź do zamówienia
+                </a>
+            </div>
         </div>
     @endif
 @endsection
