@@ -230,14 +230,33 @@ body {
 }
 .filtrpanel hr{
     width: 80%;
-    margin: 40px;
+    margin: 30px auto;
+    text-align: center;
 }
 .filtrpanel select{
-    margin: 40px;
+    margin: 10px;
     text-align: center;
     font-size: 24px;
     height: 32px;
     font-family: "Roboto Condensed", sans-serif;
+}
+.filtrpanel input{
+    margin: 10px;
+    text-align: center;
+    font-size: 24px;
+    height: 32px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+.filtrpanel button{
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-family: "Roboto Condensed", sans-serif;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .filtrpanel.active{
     left: 0;

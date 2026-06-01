@@ -35,44 +35,77 @@
         <hr>
         <div class="filtrgrupa">
             <div class="sort">
-                <label for="sortPrice">Sortuj:</label>
+                <h1>SORTUJ</h1>
                 <select id="sortPrice">
                     <option value="">--</option>
                     <option value="asc">Najtańsze</option>
                     <option value="desc">Najdroższe</option>
                 </select>
             </div>
+        </div>
+        <hr>
+        <div class="filtrgrupa">
             <h1>MARKA</h1>
-            <select id="marka">
-                <option></option>
-                <option value="Nike">Nike</option>
-                <option value="Adidas">Adidas</option>
-                <option value="Puma">Puma</option>
-                <option value="Champion">Champion</option>
-                <option value="Vans">Vans</option>
+            <select id="marka" name="brand">
+                <option value="">Wszystkie</option>
+                @foreach($brands as $brand)
+                    <option value="{{ $brand->brand }}" {{ request('brand') == $brand->brand ? 'selected' : '' }}>
+                        {{ $brand->brand }}
+                    </option>
+                @endforeach
             </select>
         </div>
         <hr>
             <div class="filtrgrupa">
             <h1>KATEGORIA</h1>
-            <select id="kat">
-                <option></option>
-                <option value="mężczyzn">Dla mężczyzn</option>
-                <option value="kobiet">Dla kobiet</option>
-                <option value="dzieci">Dla dzieci</option>
+            <select id="kat" name="category">
+                <option value="">Wszystkie</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->category }}" {{ request('category') == $category->category ? 'selected' : '' }}>
+                        {{ $category->category }}
+                    </option>
+                @endforeach
             </select>
         </div>
         <hr>
         <div class="filtrgrupa">
             <h1>RODZAJ</h1>
-            <select id="rodz">
-                <option></option>
-                <option value="Sportowe">Sportowe</option>
-                <option value="Eleganckie">Eleganckie</option>
-                <option value="Codzienne">Codzienne</option>
+            <select id="rodz" name="type">
+                <option value="">Wszystkie</option>
+                @foreach($types as $type)
+                    <option value="{{ $type->type }}" {{ request('type') == $type->type ? 'selected' : '' }}>
+                        {{ $type->type }}
+                    </option>
+                @endforeach
             </select>
         </div>
         <hr>
+        <div class="filtrgrupa">
+            <h1>ROZMIAR</h1>
+            <select id="rozmiar" name="size">
+                <option value="">Wszystkie</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+            </select>
+        </div>
+        <hr>
+        <div class="filtrgrupa">
+            <h1>CENA</h1>
+            <input type="number" id="min" placeholder="Min" min="0">
+            <input type="number" id="max" placeholder="Max" min="0">
+        </div>
+        <hr>
+        <div class="filtrgrupa">
+            <button id="reset">RESETUJ FILTRY</button>
+        </div>
     </div>
     <section class="container">
         @if($shoes->count())
