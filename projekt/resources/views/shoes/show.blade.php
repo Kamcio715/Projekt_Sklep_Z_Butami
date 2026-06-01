@@ -190,11 +190,6 @@
                                 <div class="item">
                                     <div class="card">
                                         <div class="card-body text-center p-6">
-                                            <img
-                                                src="https://ui-avatars.com/api/?name={{ urlencode($review->user->name ?? 'Użytkownik') }}&background=0D8ABC&color=fff&size=128"
-                                                alt="{{ $review->user->name ?? 'Użytkownik' }}"
-                                                class="avatar avatar-lg rounded-circle"
-                                            >
 
                                             <p class="mb-0 mt-3">{{ $review->content }}</p>
 
