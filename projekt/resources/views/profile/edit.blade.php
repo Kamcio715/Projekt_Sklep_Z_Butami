@@ -10,6 +10,25 @@
                 <div class="card-body p-4">
                     <h1 class="h3 mb-4">Dane użytkownika</h1>
 
+                    @if (!$user->hasVerifiedEmail())
+                        <div class="alert alert-warning">
+                            Ten adres e-mail nie jest zweryfikowany.
+                        </div>
+
+                        @if (session('status') === 'verification-link-sent')
+                            <div class="alert alert-success">
+                                Nowy link weryfikacyjny został wysłany na Twój adres e-mail.
+                            </div>
+                        @endif
+
+                        <form method="POST" action="{{ route('verification.send') }}" class="mb-3">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-primary">
+                                Wyślij mail weryfikacyjny ponownie
+                            </button>
+                        </form>
+                    @endif
+
                     <form method="POST" action="{{ route('profile.update') }}">
                         @csrf
                         @method('PATCH')
@@ -46,25 +65,6 @@
                             @enderror
                         </div>
 
-                        @if (!$user->hasVerifiedEmail())
-                            <div class="alert alert-warning">
-                                Ten adres e-mail nie jest zweryfikowany.
-                            </div>
-
-                            @if (session('status') === 'verification-link-sent')
-                                <div class="alert alert-success">
-                                    Nowy link weryfikacyjny został wysłany na Twój adres e-mail.
-                                </div>
-                            @endif
-
-                            <form method="POST" action="{{ route('verification.send') }}" class="mb-3">
-                                @csrf
-                                <button type="submit" class="btn btn-outline-primary">
-                                    Wyślij mail weryfikacyjny ponownie
-                                </button>
-                            </form>
-                        @endif
-
                         <button type="submit" class="btn btn-dark btn-save">Zapisz zmiany</button>
                     </form>
                 </div>
@@ -72,5 +72,4 @@
         </div>
     </div>
 </div>
-
 @endsection
