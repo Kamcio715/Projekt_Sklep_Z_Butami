@@ -1,8 +1,35 @@
-@extends('layouts.app')
-
-@section('content')
-
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+
+<header class="header">
+    <div class="logo">
+        <a href=" {{ route('shoes.index') }} "><img src="{{ asset('storage/zdj/logo.png') }}" alt="logo strony"></a>
+    </div>
+    <a href="{{ route('shoes.index') }}"><h1 class="tytul">BUTY.PL</h1></a>
+    <div class="prawo">
+        <img id="searchlogo" src="storage/zdj/lupa.png" alt="searchlogo">
+        <a href="{{ route('cart.index') }}"><img class="koszyk" src="{{ asset('storage/zdj/basketicon.png') }}" alt="koszyk"></a>
+        <img class="usericon" src="{{ asset('storage/zdj/usericon.png') }}" alt="ikona użytkownika">
+        <div class="usermenu" id="usermenu">
+            @auth
+                <a href="{{ route('profile.edit') }}">Profil</a>
+                <a class="" href="{{ route('orders.my') }}">Moje zamówienia</a>
+
+                @if(auth()->user()->isAdmin())
+                    <a class="" href="{{ route('admin.shoes.index') }}">Panel admina</a>
+                @endif
+
+                <form method="POST" action="{{ route('logout') }}" class="">
+                    @csrf
+                    <button class="">Wyloguj</button>
+                </form>
+            @else
+                <a class="" href="{{ route('login') }}">Logowanie</a>
+                <a class="" href="{{ route('register') }}">Rejestracja</a>
+            @endauth
+        </div>
+    </div>
+</header>
+
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -52,4 +79,15 @@
         </form>
     </div>
 </x-guest-layout>
-@endsection
+<footer class="footer">
+    <div class="footercontainer">
+        <p class="footertitle">POMOC</p>
+        <hr>
+        <div class="footerlink">
+            <a href="">Skontaktuj się z nami</a>
+            <a href="">Polityka prywatności</a>
+            <a href="">Regulamin</a>
+        </div>
+        <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone. Spierdalaj</p>
+    </div>
+</footer>
