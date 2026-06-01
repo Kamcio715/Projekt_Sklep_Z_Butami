@@ -7,6 +7,7 @@
     <script src="{{ asset('js/filtrowanie.js') }}"></script>
     <script src="{{ asset('js/panele.js') }}"></script>
     <script src="{{ asset('js/sort-price.js') }}"></script>
+    <script src="{{ asset('js/alerttimeout.js') }}"></script>
     
 
 
