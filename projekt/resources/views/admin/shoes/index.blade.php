@@ -48,7 +48,7 @@
                             </td>
                             <td>{{ $shoe->name }}</td>
                             <td>{{ $shoe->brand }}</td>
-                            <td>{{ $shoe->size }}</td>
+                            <td>{{ is_array($shoe->size) ? implode(', ', $shoe->size) : $shoe->size }}</td>
                             <td>{{ number_format($shoe->price, 2, ',', ' ') }} zł</td>
                             <td class="d-flex gap-2">
                                 <a href="{{ route('shoes.show', $shoe) }}" class="btn btn-sm btn-outline-secondary">Podgląd</a>
