@@ -38,7 +38,6 @@
                         <th>Produkt</th>
                         <th>Marka</th>
                         <th>Rozmiar</th>
-                        <th>Opis</th>
                         <th>Rodzaj</th>
                         <th>Cena</th>
                         <th>Ilość</th>
@@ -52,7 +51,6 @@
                             <td>{{ $item['name'] }}</td>
                             <td>{{ $item['brand'] ?? '-' }}</td>
                             <td>{{ $item['size'] ?? '-' }}</td>
-                            <td>{{ $item['description'] ?? '-' }}</td>
                             <td>{{ $item['type'] ?? '-' }}</td>
                             <td>{{ number_format($item['price'], 2, ',', ' ') }} zł</td>
                             <td>
