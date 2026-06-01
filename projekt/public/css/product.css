@@ -51,6 +51,9 @@ html, body {
     width: 40px;
     cursor: pointer;
 }
+#searchlogo{
+    display: none;
+}
 .usermenu {
     position: absolute;
     right: 0;

@@ -12,7 +12,7 @@
 
     <div class="mb-3">
         <label class="form-label">Nazwa</label>
-        <input type="text" name="name" value="{{ old('name', $shoe->name ?? '') }}"
+        <input placeholder="Airmax" type="text" name="name" value="{{ old('name', $shoe->name ?? '') }}"
             class="form-control @error('name') is-invalid @enderror">
         @error('name')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -21,7 +21,7 @@
 
     <div class="mb-3">
         <label class="form-label">Marka</label>
-        <input type="text" name="brand" value="{{ old('brand', $shoe->brand ?? '') }}"
+        <input placeholder="Addidas" type="text" name="brand" value="{{ old('brand', $shoe->brand ?? '') }}"
             class="form-control @error('brand') is-invalid @enderror">
         @error('brand')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -50,7 +50,7 @@
 
     <div class="mb-3">
         <label class="form-label">Rozmiar</label>
-        <input type="number" step="0.5" name="size" value="{{ old('size', $shoe->size ?? '') }}"
+        <input placeholder="42" type="number" step="0.5" name="size" value="{{ old('size', $shoe->size ?? '') }}"
             class="form-control @error('size') is-invalid @enderror">
         @error('size')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -59,7 +59,7 @@
 
     <div class="mb-3">
         <label class="form-label">Cena</label>
-        <input type="number" step="0.01" name="price" value="{{ old('price', $shoe->price ?? '') }}"
+        <input placeholder="200.00" type="number" step="0.01" name="price" value="{{ old('price', $shoe->price ?? '') }}"
             class="form-control @error('price') is-invalid @enderror">
         @error('price')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -68,7 +68,7 @@
 
     <div class="mb-3">
         <label class="form-label">Kolor</label>
-        <input type="text" name="color" value="{{ old('color', $shoe->color ?? '') }}"
+        <input placeholder="czerwony" type="text" name="color" value="{{ old('color', $shoe->color ?? '') }}"
             class="form-control @error('color') is-invalid @enderror">
         @error('color')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -77,7 +77,7 @@
 
     <div class="mb-3">
         <label class="form-label">Opis</label>
-        <textarea name="description" rows="4"
+        <textarea placeholder="Super nowe buty" name="description" rows="4"
                 class="form-control @error('description') is-invalid @enderror">{{ old('description', $shoe->description ?? '') }}</textarea>
         @error('description')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -86,7 +86,7 @@
 
     <div class="mb-3">
         <label class="form-label">Ilość na stanie</label>
-        <input type="number" name="stock" value="{{ old('stock', $shoe->stock ?? '') }}"
+        <input placeholder="2137" type="number" name="stock" value="{{ old('stock', $shoe->stock ?? '') }}"
             class="form-control @error('stock') is-invalid @enderror">
         @error('stock')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -101,7 +101,7 @@
         @enderror
 
         @if(!empty($shoe?->image))
-            <div class="mt-3">
+            <div class="mt-3 image-preview">
                 <img src="{{ asset('storage/' . $shoe->image) }}"
                     alt="{{ $shoe->name }}"
                     style="width: 150px; height: 150px; object-fit: cover;"
