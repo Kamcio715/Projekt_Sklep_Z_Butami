@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function()
     const logo = document.getElementById("searchlogo");
     const search = document.getElementById("search");
     const filtrbtn = document.getElementById("filtrbtn");
-    const filtricon = document.getElementById("filtricon");
     const panel = document.getElementById("filtrpanel");
     const usericon=document.querySelector(".usericon");
     const usermenu=document.getElementById("usermenu");
@@ -61,5 +60,4 @@ document.addEventListener('DOMContentLoaded', function()
     // Obsługa kliknięcia w przycisk i ikonę filtra
 
     filtrbtn.addEventListener("click", PanelActivation);
-    filtricon.addEventListener("click", PanelActivation);
 });
