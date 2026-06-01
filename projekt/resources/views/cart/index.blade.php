@@ -20,8 +20,8 @@
     @endif
 
     @if(empty($cart))
-        <div class="alert alert-info">
-            Koszyk jest pusty.
+        <div class="alert alert-info empty-cart">
+            <h2>Koszyk jest pusty</h2>
         </div>
     @else
         <div class="table-responsive">
