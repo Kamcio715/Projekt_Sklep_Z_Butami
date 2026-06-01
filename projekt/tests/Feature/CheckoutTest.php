@@ -18,18 +18,22 @@ class CheckoutTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    public function test_authenticated_user_can_open_checkout_page(): void
+    public function test_authenticated_verified_user_can_open_checkout_page(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'email_verified_at' => now(),
+        ]);
 
         $response = $this->actingAs($user)->get(route('checkout.index'));
 
         $response->assertStatus(200);
     }
 
-    public function test_authenticated_user_can_submit_checkout_with_cart(): void
+    public function test_authenticated_verified_user_can_submit_checkout_with_cart(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'email_verified_at' => now(),
+        ]);
 
         $shoe = Shoe::create([
             'name' => 'Checkout Shoe',
@@ -76,7 +80,9 @@ class CheckoutTest extends TestCase
 
     public function test_checkout_requires_cart_items(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'email_verified_at' => now(),
+        ]);
 
         $response = $this->actingAs($user)->post(route('checkout.store'), [
             'name' => 'Jan Kowalski',

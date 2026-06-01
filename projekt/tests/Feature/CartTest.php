@@ -113,27 +113,27 @@ class CartTest extends TestCase
 
         $cartKey = $shoe->id . '_41';
 
-        $this->withSession([
-            'cart' => [
-                $cartKey => [
-                    'id' => $shoe->id,
-                    'cart_key' => $cartKey,
-                    'name' => $shoe->name,
-                    'brand' => $shoe->brand,
-                    'size' => '41',
-                    'description' => $shoe->description,
-                    'type' => $shoe->type,
-                    'price' => $shoe->price,
-                    'quantity' => 1,
-                    'stock' => $shoe->stock,
-                    'image' => $shoe->image,
+        $response = $this
+            ->withSession([
+                'cart' => [
+                    $cartKey => [
+                        'id' => $shoe->id,
+                        'cart_key' => $cartKey,
+                        'name' => $shoe->name,
+                        'brand' => $shoe->brand,
+                        'size' => '41',
+                        'description' => $shoe->description,
+                        'type' => $shoe->type,
+                        'price' => $shoe->price,
+                        'quantity' => 1,
+                        'stock' => $shoe->stock,
+                        'image' => $shoe->image,
+                    ],
                 ],
-            ],
-        ]);
-
-        $response = $this->post(route('cart.update', $cartKey), [
-            'quantity' => 3,
-        ]);
+            ])
+            ->post(route('cart.update', $cartKey), [
+                'quantity' => 3,
+            ]);
 
         $response->assertRedirect(route('cart.index'));
         $response->assertSessionHas('success', 'Ilość została zaktualizowana.');
@@ -160,26 +160,28 @@ class CartTest extends TestCase
 
         $cartKey = $shoe->id . '_41';
 
-        $this->withSession([
-            'cart' => [
-                $cartKey => [
-                    'id' => $shoe->id,
-                    'cart_key' => $cartKey,
-                    'name' => $shoe->name,
-                    'brand' => $shoe->brand,
-                    'size' => '41',
-                    'description' => $shoe->description,
-                    'type' => $shoe->type,
-                    'price' => $shoe->price,
-                    'quantity' => 1,
-                    'stock' => $shoe->stock,
-                    'image' => $shoe->image,
+        $response = $this
+            ->from(route('cart.index'))
+            ->withSession([
+                'cart' => [
+                    $cartKey => [
+                        'id' => $shoe->id,
+                        'cart_key' => $cartKey,
+                        'name' => $shoe->name,
+                        'brand' => $shoe->brand,
+                        'size' => '41',
+                        'description' => $shoe->description,
+                        'type' => $shoe->type,
+                        'price' => $shoe->price,
+                        'quantity' => 1,
+                        'stock' => $shoe->stock,
+                        'image' => $shoe->image,
+                    ],
                 ],
-            ],
-        ]);
+            ])
+            ->post(route('cart.remove', $cartKey));
 
-        $response = $this->post(route('cart.remove', $cartKey));
-
+        $response->assertRedirect(route('cart.index'));
         $response->assertSessionHas('success', 'Usunięto produkt z koszyka.');
         $this->assertEmpty(session('cart', []));
     }
@@ -201,26 +203,28 @@ class CartTest extends TestCase
 
         $cartKey = $shoe->id . '_41';
 
-        $this->withSession([
-            'cart' => [
-                $cartKey => [
-                    'id' => $shoe->id,
-                    'cart_key' => $cartKey,
-                    'name' => $shoe->name,
-                    'brand' => $shoe->brand,
-                    'size' => '41',
-                    'description' => $shoe->description,
-                    'type' => $shoe->type,
-                    'price' => $shoe->price,
-                    'quantity' => 2,
-                    'stock' => $shoe->stock,
-                    'image' => $shoe->image,
+        $response = $this
+            ->from(route('cart.index'))
+            ->withSession([
+                'cart' => [
+                    $cartKey => [
+                        'id' => $shoe->id,
+                        'cart_key' => $cartKey,
+                        'name' => $shoe->name,
+                        'brand' => $shoe->brand,
+                        'size' => '41',
+                        'description' => $shoe->description,
+                        'type' => $shoe->type,
+                        'price' => $shoe->price,
+                        'quantity' => 2,
+                        'stock' => $shoe->stock,
+                        'image' => $shoe->image,
+                    ],
                 ],
-            ],
-        ]);
+            ])
+            ->post(route('cart.clear'));
 
-        $response = $this->post(route('cart.clear'));
-
+        $response->assertRedirect(route('cart.index'));
         $response->assertSessionHas('success', 'Koszyk został wyczyszczony.');
         $this->assertEmpty(session('cart', []));
     }
