@@ -77,7 +77,7 @@
                             @else
                                 <div class="no-image">Brak zdjęcia</div>
                             @endif
-                            <h4>{{ $shoe->name }}</h4>
+                            <h4 class="nazwa">{{ $shoe->name }}</h4>
                             <hr>
                             <div class="p">{{ $shoe->brand }}</div>
                             <div>{{ number_format($shoe->price, 2, '.', '') }} zł</div>
