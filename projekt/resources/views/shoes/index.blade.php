@@ -14,7 +14,7 @@
 <body>
     <section class="hero">
         <div class="heroleft">
-            <h1>„BARDZO DOBRE SUPER BUTY PAPUESZ POLAK POLECA 5/5"</h1>
+            <h1>„NIE 5/5"</h1>
             <h1> - GRAŻYNA ŻARKO</h1>
             <button class="herobtn">ZGARNIJ TERAZ</button>
         </div>
