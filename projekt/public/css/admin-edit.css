@@ -15,7 +15,9 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+#searchlogo{
+    display: none;
+}
 .edit-main { 
     flex: 1; 
 }
