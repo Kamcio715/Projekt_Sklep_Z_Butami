@@ -2,7 +2,6 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">

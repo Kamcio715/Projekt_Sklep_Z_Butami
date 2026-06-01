@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('marka');
             $table->string('kategoria');
             $table->string('rodzaj');
-            $table->decimal('rozmiar', 4, 1);
+            $table->json('rozmiar')->nullable();
             $table->decimal('cena', 8, 2);
             $table->string('kolor')->nullable();
             $table->text('opis')->nullable();

@@ -5,8 +5,16 @@
 }
 body {
     font-family: "Roboto Condensed", sans-serif;
-    color: black;
-    background-color: white;
+    background: #fff;
+    color: #111;
+}
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:"Roboto Condensed",sans-serif;
+    background:white;
 }
 .header {
     display: flex;
@@ -105,126 +113,101 @@ body {
     transform: translateY(0);
     pointer-events: auto;
 }
-/* WYŚRODKOWANIE CAŁEGO LOGINU */
-main {
-    min-height: calc(100vh - 78px - 220px);
+.min-h-screen {
+    min-height: 100vh;
+    padding: 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* KARTA LOGOWANIA */
+/* FORM */
 form {
-    width:800px;
-    max-width: 440px;
-    background: white;
+    width: 100%;
+    max-width: 420px;
     padding: 35px;
+
+    background: #fff;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-form a{
-    margin-top: 10px;
+
+form h2 {
+    color: #222;
+    font-size: 28px;
+    font-weight: 700;
 }
-/* LABEL */
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
+
+form p {
+    color: #666;
+    line-height: 1.5;
+}
+
+form label {
     display: block;
-    margin: 10px 0;
+    margin-top: 15px;
+    margin-bottom: 8px;
+
+    color: #333;
+    font-weight: 600;
 }
 
-/* INPUTY */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    border-radius: 5px;
-    border: 1px solid gray;
+form input[type="email"] {
     width: 100%;
-    padding: 14px;
-    font-size: 16px;
-}
-/* CHECKBOX */
-input[type="checkbox"] {
-    margin-right: 8px;
+    padding: 12px 14px;
+
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+
+    font-size: 15px;
+    transition: 0.3s;
 }
 
-/* PRZYCISK */
-button {
+form input[type="email"]:focus {
+    outline: none;
+    border-color: black;
+}
+
+/* BUTTON */
+form button {
     width: 100%;
-    padding: 10px;
-    background-color: black;
-    color: white;
+    margin-top: 25px;
+    padding: 12px;
+
     border: none;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: 8px;
+
+    background: black;
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 600;
+
     cursor: pointer;
     transition: 0.3s;
 }
 
-button:hover {
-    background-color: #333;
+form button:hover {
+    background: black;
 }
 
-/* LINK (reset hasła) */
-a {
-    font-size: 13px;
-    color: black;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* BŁĘDY */
+/* MESSAGES */
 .text-red-600 {
-    color: red;
-    font-size: 12px;
+    margin-top: 8px;
+    color: #dc2626;
+    font-size: 13px;
 }
 
-/* UKŁAD DOLNY */
-.flex.items-center.justify-end {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
-}
+div[style*="color: green"] {
+    margin-bottom: 15px;
+    padding: 10px;
 
-.footer {
-  background: #111;
-  color: #fff;
-  padding: 40px 20px;
-  margin-top: 60px;
-}
-.footercontainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-.footertitle {
-  font-family: 'Oswald', Arial, sans-serif;
-  font-size: 22px;
-  letter-spacing: 3px;
-}
-.footerlink {
-  margin-bottom: 20px;
-}
-.footercontainer hr{
-    margin: 25px 0px;
-}
-.footerlink a {
-  color: #ccc;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 16px;
-  transition: color 0.3s;
-}
-.footerlink a:hover {
-  color: #fff;
-}
-.footertm {
-  font-size: 12px;
-  color: #777;
+    background: #dcfce7;
+    color: #15803d !important;
+
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
 }
 @media (max-width: 768px) {
     .header {
@@ -236,11 +219,6 @@ a:hover {
         width: 100%;
         min-height: 50px;
     }
-
-    main {
-        padding-top: 100px;
-    }
-
     .logo img{
         height: 45px;
     }
@@ -261,10 +239,6 @@ a:hover {
     .usericon, #searchlogo, .prawo a img {
         height: 32px;
         width: 32px;
-    }
-    form {
-        width: 90%;
-        padding: 20px;
     }
     .footer {
         height: auto;

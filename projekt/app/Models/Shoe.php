@@ -19,6 +19,10 @@ class Shoe extends Model
         'image',
     ];
 
+    protected $casts = [
+        'size' => 'array',
+    ];
+
     public function reviews()
 {
     return $this->hasMany(Review::class)->latest();
