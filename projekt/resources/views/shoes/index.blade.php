@@ -1,17 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKLEP Z BUTAMI</title>
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
     <section class="hero">
         <div class="heroleft">
             <h1>„BARDZO DOBRE SUPER BUTY PAPUESZ POLAK POLECA 5/5"</h1>
@@ -94,6 +82,4 @@
             </div>
         @endif
     </section>
-</body>
-</html>
 @endsection
