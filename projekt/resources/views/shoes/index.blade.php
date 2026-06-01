@@ -72,7 +72,7 @@
                 @foreach($shoes as $shoe)
                     <li class="card">
                         <a href="{{ route('shoes.show', $shoe) }}">
-                            @if($shoe->zdjecie)
+                            @if($shoe->image)
                                 <img src="{{ asset('storage/' . $shoe->image) }}" alt="{{ $shoe->name }}">
                             @else
                                 <div class="no-image">Brak zdjęcia</div>

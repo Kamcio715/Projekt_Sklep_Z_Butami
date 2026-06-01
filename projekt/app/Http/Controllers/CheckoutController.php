@@ -58,16 +58,16 @@ class CheckoutController extends Controller
         $paymentStatus = $data['payment_method'] === 'przy_odbiorze' ? 'pending' : 'paid';
 
         Order::create([
-        'user_id' => Auth::check() ? Auth::id() : null,
-        'customer_name'   => $data['customer_name'],
-        'customer_email'  => $data['customer_email'],
-        'customer_phone'  => $data['customer_phone'] ?? null,
-        'address'         => $data['address'],
-        'delivery_method' => $data['delivery_method'],
-        'payment_method'  => $data['payment_method'],
-        'payment_status'  => $paymentStatus,
-        'total'           => $total,
-        'items'           => $cart,
+            'user_id' => Auth::check() ? Auth::id() : null,
+            'customer_name'   => $data['customer_name'],
+            'customer_email'  => $data['customer_email'],
+            'customer_phone'  => $data['customer_phone'] ?? null,
+            'address'         => $data['address'],
+            'delivery_method' => $data['delivery_method'],
+            'payment_method'  => $data['payment_method'],
+            'payment_status'  => $paymentStatus,
+            'total'           => $total,
+            'items'           => $cart,
         ]);
 
         foreach ($cart as $item) {
