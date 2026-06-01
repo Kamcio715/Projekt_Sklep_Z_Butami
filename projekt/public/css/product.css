@@ -365,6 +365,138 @@ html, body {
     line-height: 1.6;
     color: #444;
 }
+.recenzje{
+    grid-column: 1 / span 2;
+    width: 100%;
+    margin-top: 70px;
+    padding: 60px 30px;
+    background: #f6f6f6;
+    border-radius: 25px;
+}
+.recenzje .mb-3{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+.recenzje h2{
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.recenzje .container{
+    max-width:100% !important;
+    width:100% !important;
+    padding:0;
+}
+
+.recenzje .row{
+    margin:0;
+}
+
+.recenzje .col-md-12,
+.recenzje .col-lg-10,
+.recenzje .offset-lg-1{
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+}
+.sliderTestimonialThird{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:25px;
+    margin-top:30px;
+}
+
+.sliderTestimonialThird .item{
+    width:100%;
+}
+
+.sliderTestimonialThird .card{
+    height:100%;
+    padding:25px;
+    border-radius:22px;
+    background:white;
+    border:1px solid #e5e5e5;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+    padding:20px 25px !important;
+}
+
+.sliderTestimonialThird .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 35px rgba(0,0,0,.14);
+}
+
+.sliderTestimonialThird .card-body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
+.item{
+    grid-column: 1 / span 2;
+}
+.avatar{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    border:4px solid black;
+    object-fit:cover;
+}
+
+.sliderTestimonialThird p{
+    font-size:17px;
+    line-height:1.6;
+    color:#333;
+    max-width:420px;
+}
+
+.sliderTestimonialThird h3{
+    font-size:22px;
+    font-weight:900;
+}
+
+.sliderTestimonialThird span{
+    font-size:14px;
+    color:#555;
+}
+
+.text-warning{
+    color:#f5b301 !important;
+}
+
+.text-secondary{
+    color:#ccc !important;
+}
+#dodaj-opinie h2{
+    text-align: center;
+}
+#dodaj-opinie h4{
+    font-size: 24px;
+    font-weight: 900;
+}
+#dodaj-opinie .card{
+    border-radius:22px;
+    border:1px solid #ddd;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+#dodaj-opinie textarea{
+    width:100% !important;
+    min-height:130px;
+    border-radius:14px;
+    padding:15px;
+    resize:none;
+}
+
+#dodaj-opinie button{
+    width:auto !important;
+    padding:12px 25px;
+    border-radius:12px;
+}
 /* FOOTER */
 .footer {
     background-color: black;
@@ -423,8 +555,8 @@ html, body {
     .prawo img,.prawo a {
         height: 40px;
     }
-    .product {
-        grid-template-columns: 1fr;
+    .recenzje h2{
+        font-size:28px;
     }
 }
 @media (max-width: 480px){
@@ -437,6 +569,17 @@ html, body {
     .usericon, #searchlogo, .prawo a img {
         height: 32px;
         width: 32px;
+    }
+    .product {
+        grid-template-columns: 1fr;
+    }
+    .recenzje{
+        grid-column:1;
+        padding:35px 15px;
+    }
+
+    .sliderTestimonialThird{
+        grid-template-columns:1fr;
     }
     .footer {
         height: auto;
