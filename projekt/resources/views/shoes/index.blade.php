@@ -42,35 +42,41 @@
                 </select>
             </div>
             <h1>MARKA</h1>
-            <select id="marka">
-                <option></option>
-                <option value="Nike">Nike</option>
-                <option value="Adidas">Adidas</option>
-                <option value="Puma">Puma</option>
-                <option value="Champion">Champion</option>
-                <option value="Vans">Vans</option>
+            <select id="marka" name="marka">
+                <option value=""></option>
+                @foreach($brands as $brand)
+                    <option value="{{ $brand }}" {{ request('marka') === $brand ? 'selected' : '' }}>
+                        {{ $brand }}
+                    </option>
+                @endforeach
             </select>
-        </div>
-        <hr>
+            </div>
+            <hr>
+
             <div class="filtrgrupa">
-            <h1>KATEGORIA</h1>
-            <select id="kat">
-                <option></option>
-                <option value="mężczyzn">Dla mężczyzn</option>
-                <option value="kobiet">Dla kobiet</option>
-                <option value="dzieci">Dla dzieci</option>
-            </select>
-        </div>
-        <hr>
-        <div class="filtrgrupa">
-            <h1>RODZAJ</h1>
-            <select id="rodz">
-                <option></option>
-                <option value="Sportowe">Sportowe</option>
-                <option value="Eleganckie">Eleganckie</option>
-                <option value="Codzienne">Codzienne</option>
-            </select>
-        </div>
+                <h1>KATEGORIA</h1>
+                <select id="kat" name="kat">
+                    <option value=""></option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category }}" {{ request('kat') === $category ? 'selected' : '' }}>
+                            {{ $category }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <hr>
+
+            <div class="filtrgrupa">
+                <h1>RODZAJ</h1>
+                <select id="rodz" name="rodz">
+                    <option value=""></option>
+                    @foreach($types as $type)
+                        <option value="{{ $type }}" {{ request('rodz') === $type ? 'selected' : '' }}>
+                            {{ $type }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
         <hr>
     </div>
     <section class="container" id="buty">

@@ -30,23 +30,23 @@ class ShoeController extends Controller
 
         $shoes = $query->latest()->paginate(12)->withQueryString();
 
-        $brands = Shoe::selectRaw('brand, COUNT(*) as total')
-            ->whereNotNull('brand')
-            ->groupBy('brand')
+        $brands = Shoe::whereNotNull('brand')
+            ->where('brand', '!=', '')
+            ->distinct()
             ->orderBy('brand')
-            ->get();
+            ->pluck('brand');
 
-        $categories = Shoe::selectRaw('category, COUNT(*) as total')
-            ->whereNotNull('category')
-            ->groupBy('category')
-            ->orderBy('category')
-            ->get();
-
-        $types = Shoe::selectRaw('type, COUNT(*) as total')
-            ->whereNotNull('type')
-            ->groupBy('type')
+        $categories = Shoe::whereNotNull('type')
+            ->where('type', '!=', '')
+            ->distinct()
             ->orderBy('type')
-            ->get();
+            ->pluck('type');
+
+        $types = Shoe::whereNotNull('category')
+            ->where('category', '!=', '')
+            ->distinct()
+            ->orderBy('category')
+            ->pluck('category');
 
         return view('shoes.index', compact('shoes', 'brands', 'categories', 'types'));
     }
