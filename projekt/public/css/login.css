@@ -1,13 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-body {
-    font-family: "Roboto Condensed", sans-serif;
-    color: black;
-    background-color: white;
-    padding-top: 80px;
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:"Roboto Condensed",sans-serif;
+    background:white;
 }
 .header {
     display: flex;
@@ -103,168 +106,101 @@ body {
     transform: translateY(0);
     pointer-events: auto;
 }
-/* WYŚRODKOWANIE CAŁEGO LOGINU */
-.min-h-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+.auth-page{
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* KARTA LOGOWANIA */
-form {
-    width: 100%;
-    max-width: 380px;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+form{
+    width:550px;
+    max-width:90%;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,.15);
 }
 
-/* LABEL */
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
+label{
+    display:block;
+    font-weight:700;
+    margin-bottom:8px;
+    color:black;
 }
 
-/* INPUTY */
 input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-}
-/* CHECKBOX */
-input[type="checkbox"] {
-    margin-right: 8px;
+input[type="password"]{
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+    margin-top:5px;
 }
 
-/* PRZYCISK */
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+.mt-4{
+    margin-top:20px;
 }
 
-button:hover {
-    background-color: #333;
+.block.mt-4{
+    margin-top:20px;
 }
 
-/* LINK (reset hasła) */
-a {
-    font-size: 13px;
-    color: black;
-    text-decoration: none;
+.inline-flex{
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
-a:hover {
-    text-decoration: underline;
+input[type="checkbox"]{
+    width:18px;
+    height:18px;
 }
 
-/* BŁĘDY */
-.text-red-600 {
-    color: red;
-    font-size: 12px;
+.text-red-600{
+    color:red;
+    font-size:13px;
+    margin-top:5px;
 }
 
-/* UKŁAD DOLNY */
-.flex.items-center.justify-end {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
+.flex.items-center.justify-end{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:25px;
 }
 
-.footer {
-  background: #111;
-  color: #fff;
-  padding: 40px 20px;
-  min-height: calc(100vh - 78px - 250px - 20vh);
-  min-height: 250px;
+.flex.items-center.justify-end a{
+    color:black;
+    text-decoration:none;
+    font-size:14px;
 }
-.footercontainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
+
+.flex.items-center.justify-end a:hover{
+    text-decoration:underline;
 }
-.footertitle {
-  font-family: 'Oswald', Arial, sans-serif;
-  font-size: 22px;
-  letter-spacing: 3px;
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:6px;
+    background:black;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
 }
-.footerlink {
-  margin-bottom: 20px;
+
+button:hover{
+    background:#333;
 }
-.footercontainer hr{
-    margin: 25px 0px;
-}
-.footerlink a {
-  color: #ccc;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 16px;
-  transition: color 0.3s;
-}
-.footerlink a:hover {
-  color: #fff;
-}
-.footertm {
-  font-size: 12px;
-  color: #777;
-}
-@media (max-width: 768px) {
-    .header {
-        padding: 10px;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        min-height: 50px;
-    }
-    .logo img{
-        height: 45px;
-    }
-    .tytul {
-        font-size: 30px;
-    }
-    .prawo img,.prawo a {
-        height: 40px;
-    }
-}
-@media (max-width: 480px) {
-    .tytul {
-        font-size: 20px;
-    }
-    .prawo img,.prawo a {
-        height: 32px;
-    }
-    .usericon, #searchlogo, .prawo a img {
-        height: 32px;
-        width: 32px;
-    }
-    form {
-        width: 90%;
-        padding: 20px;
-    }
-    .footer {
-        height: auto;
-        padding: 20px 10px;
-        text-align: center;
-    }
-    .footerlink a {
-        display: block;
-        margin: 8px 0;
+
+@media(max-width:768px){
+    form{
+        width:90%;
+        padding:25px;
     }
 }

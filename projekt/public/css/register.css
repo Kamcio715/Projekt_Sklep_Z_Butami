@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    color: black;
+    background-color: white;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+    background-color: black;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    height: 10vh;
+    min-height: 78px;
+}
+.header a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.logo img{
+    height: 83px;
+    box-sizing: border-box;
+}
+.logo{
+    height: auto;
+}
+.tytul {
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.prawo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.usericon, #searchlogo, .prawo a img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+.usermenu {
+    position: absolute;
+    right: 0;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px 0;
+    width: 160px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-300px);
+    transition: .6s;
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all .3s ease;
+    text-align: center;
+}
+
+.usermenu a {
+    font-size: 1.1em;
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+.usermenu a:nth-child(3){
+    color: red;
+}
+.usermenu a:nth-child(3):hover{
+    color: rgb(100, 0, 0);
+}
+.usermenu button{
+    font-size: 1.1em;
+    background-color: black;
+    color: white;
+    border: none;
+    text-align: center;
+    margin: 10px 15px;
+    font-family: "Roboto Condensed", sans-serif;
+    transition: 0.3s;
+}
+.usermenu a:hover, .usermenu button:hover {
+    cursor: pointer;
+    color: #777;
+}
+
+.usermenu.active {
+    opacity: 1;
+    top: 10vh;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+/* WYŚRODKOWANIE CAŁEGO LOGINU */
+.min-h-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* KARTA LOGOWANIA */
+form {
+    width: 100%;
+    max-width: 550px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    border: 3px solid black;
+}
+
+/* LABEL */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    margin: 10px 0;
+}
+
+/* INPUTY */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    border-radius: 5px;
+    border: 1px solid gray;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+}
+/* CHECKBOX */
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* PRZYCISK */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* LINK (reset hasła) */
+a {
+    font-size: 13px;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* BŁĘDY */
+.text-red-600 {
+    color: red;
+    font-size: 12px;
+}
+
+/* UKŁAD DOLNY */
+.flex.items-center.justify-end {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 20px;
+  min-height: calc(100vh - 78px - 250px - 20vh);
+  min-height: 250px;
+}
+.footercontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footertitle {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.footerlink {
+  margin-bottom: 20px;
+}
+.footercontainer hr{
+    margin: 25px 0px;
+}
+.footerlink a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+.footerlink a:hover {
+  color: #fff;
+}
+.footertm {
+  font-size: 12px;
+  color: #777;
+}
+@media (max-width: 768px) {
+    .header {
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 50px;
+    }
+    .logo img{
+        height: 45px;
+    }
+    .tytul {
+        font-size: 30px;
+    }
+    .prawo img,.prawo a {
+        height: 40px;
+    }
+}
+@media (max-width: 480px) {
+    .tytul {
+        font-size: 20px;
+    }
+    .prawo img,.prawo a {
+        height: 32px;
+    }
+    .usericon, #searchlogo, .prawo a img {
+        height: 32px;
+        width: 32px;
+    }
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+    .footer {
+        height: auto;
+        padding: 20px 10px;
+        text-align: center;
+    }
+    .footerlink a {
+        display: block;
+        margin: 8px 0;
+    }
+}
