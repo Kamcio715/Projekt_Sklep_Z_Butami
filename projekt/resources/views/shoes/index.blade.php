@@ -83,7 +83,7 @@
                             <div>{{ number_format($shoe->price, 2, '.', '') }} zł</div>
                             <div>{{ $shoe->category }}</div>
                             <div>{{ $shoe->type }}</div>
-                            <div>{{ $shoe->size }}</div>
+                            <div>{{ is_array($shoe->size) ? implode(', ', $shoe->size) : $shoe->size }}</div>
                         </a>
                     </li>
                 @endforeach
