@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 <x-guest-layout>
@@ -38,3 +41,4 @@
         </div>
     </form>
 </x-guest-layout>
+@endsection
