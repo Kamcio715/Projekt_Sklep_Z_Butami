@@ -51,6 +51,26 @@ body {
     color: #333;
     text-decoration: none;
 }
+.mb-3:last-child {
+    text-align: center;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 10px auto;
+    width: fit-content;
+}
+.image-preview {
+    display: flex;
+    justify-content: center;
+}
+
+.image-preview img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
 
 /* =========================
