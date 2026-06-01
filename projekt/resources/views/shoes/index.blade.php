@@ -34,6 +34,14 @@
         </div>
         <hr>
         <div class="filtrgrupa">
+            <div class="sort">
+                <label for="sortPrice">Sortuj:</label>
+                <select id="sortPrice">
+                    <option value="">--</option>
+                    <option value="asc">Najtańsze</option>
+                    <option value="desc">Najdroższe</option>
+                </select>
+            </div>
             <h1>MARKA</h1>
             <select id="marka">
                 <option></option>
@@ -80,7 +88,7 @@
                             <h4 class="nazwa">{{ $shoe->name }}</h4>
                             <hr>
                             <div class="p">{{ $shoe->brand }}</div>
-                            <div>{{ number_format($shoe->price, 2, '.', '') }} zł</div>
+                            <div class="cena">{{ number_format($shoe->price, 2, '.', '') }} zł</div>
                             <div>{{ $shoe->category }}</div>
                             <div>{{ $shoe->type }}</div>
                             <div>{{ is_array($shoe->size) ? implode(', ', $shoe->size) : $shoe->size }}</div>
