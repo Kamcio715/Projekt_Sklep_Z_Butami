@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
 </head>
 <body>
     <section class="hero">
@@ -80,7 +79,7 @@
                             @endif
                             <h4>{{ $shoe->name }}</h4>
                             <hr>
-                            <div>{{ $shoe->brand }}</div>
+                            <div class="p">{{ $shoe->brand }}</div>
                             <div>{{ number_format($shoe->price, 2, '.', '') }} zł</div>
                             <div>{{ $shoe->category }}</div>
                             <div>{{ $shoe->type }}</div>

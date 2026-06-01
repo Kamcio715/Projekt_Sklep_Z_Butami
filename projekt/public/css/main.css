@@ -19,6 +19,10 @@ body {
     height: 10vh;
     min-height: 78px;
 }
+.header a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
 .logo img{
     height: 83px;
     box-sizing: border-box;
@@ -266,23 +270,36 @@ footer hr{
     color: black;
 
 }
-.card {
+.card{
     background: #e9e9e9;
-    padding: 20px;
     border-radius: 4px;
-    transition: transform 0.5s ease;
-    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    transition: transform .5s ease;
 }
 .card:hover {
     transform: translateY(-25px);
 }
-.card img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: contain;
-    margin-bottom: 20px;
+
+.card a{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    text-decoration: none;
+    color: black;
 }
-.card h2 {
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    display:block;
+}
+
+.card-content{
+    padding:15px;
+}
+.card h4 {
     font-size: 32px;
     color: black;
 }
@@ -403,11 +420,11 @@ footer hr{
     }
     .card img {
         width: 100%;
-        max-height: 80px;
-        object-fit: contain;
-        margin-bottom: 20px;
+        height: 180px;
+        object-fit: cover;
+        margin-bottom: 0;
     }
-    .card h2 {
+    .card h4 {
         font-size: 20px;
     }
     .card p {
