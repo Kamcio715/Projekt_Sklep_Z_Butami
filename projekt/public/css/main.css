@@ -147,17 +147,6 @@ body {
 .heroimg img:hover {
     transform: scale(1.2) rotate(-2deg);
 }
-.herobtn {
-    background: black;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: "Roboto Condensed", sans-serif;
-}
 .search {
     overflow: hidden;
     position: fixed;

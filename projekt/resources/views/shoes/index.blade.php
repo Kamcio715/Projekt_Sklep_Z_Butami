@@ -14,9 +14,8 @@
 <body>
     <section class="hero">
         <div class="heroleft">
-            <h1>„BARDZO DOBRE SUPER BUTY PAPUESZ POLAK POLECA 5/5"</h1>
-            <h1> - GRAŻYNA ŻARKO</h1>
-            <button class="herobtn">ZGARNIJ TERAZ</button>
+            <h1>„Buty oryginalne, żadne podróbki, szybka dostawa i dobre ceny 5/5"</h1>
+            <h1> - CEO, Andrzej Mikołajczow</h1>
         </div>
         <div class="heroimg">
             <img src="{{ asset('storage/zdj/hero.png') }}" alt="but">
@@ -74,7 +73,7 @@
         </div>
         <hr>
     </div>
-    <section class="container">
+    <section class="container" id="buty">
         @if($shoes->count())
             <ul class="grid">
                 @foreach($shoes as $shoe)
