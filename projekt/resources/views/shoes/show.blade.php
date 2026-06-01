@@ -127,11 +127,6 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-4 text-md-end mt-4 mt-md-0">
-                            @guest
-                                <a href="{{ route('login') }}" class="btn btn-primary">Zaloguj się</a>
-                            @endguest
-                        </div>
                     </div>
                 </div>
             </div>
@@ -176,9 +171,13 @@
                             </div>
                         </div>
                     @else
-                        <div class="alert alert-info mb-0">
+                        <a href="{{ route('login') }}" class="btn btn-primary">
+                            Zaloguj się
+                        </a>
+
+                        <p class="login-info">
                             Zaloguj się, aby dodać opinię.
-                        </div>
+                        </p>
                     @endauth
                 </div>
             </div>
