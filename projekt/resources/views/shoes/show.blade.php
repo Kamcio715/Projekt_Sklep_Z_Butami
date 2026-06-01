@@ -36,24 +36,55 @@
             <p>Stan magazynowy: {{ $shoe->stock }}</p>
 
             <div class="product__sizes" style="margin: 15px 0;">
-                <strong>Rozmiar:</strong> {{ $shoe->size ?? 'brak danych' }}
+                <label for="size"><strong>Rozmiar:</strong></label>
+                <select
+                    name="size"
+                    id="size"
+                    class="form-control @error('size') is-invalid @enderror"
+                    form="add-to-cart-form"
+                    required
+                    style="max-width: 220px; margin-top: 8px;"
+                >
+                    <option value="" disabled selected>Wybierz rozmiar</option>
+
+                    @if(is_array($shoe->size))
+                        @foreach($shoe->size as $size)
+                            <option value="{{ $size }}" @selected(old('size') == $size)>
+                                {{ $size }}
+                            </option>
+                        @endforeach
+                    @elseif(!empty($shoe->size))
+                        <option value="{{ $shoe->size }}" selected>
+                            {{ $shoe->size }}
+                        </option>
+                    @endif
+                </select>
+
+                @error('size')
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
             </div>
 
-            <form action="{{ route('cart.add', $shoe) }}" method="POST" class="mt-3">
+            <form action="{{ route('cart.add', $shoe) }}" method="POST" class="mt-3" id="add-to-cart-form">
                 @csrf
 
                 <div class="d-flex gap-2 align-items-center">
                     <input
                         type="number"
                         name="quantity"
-                        value="1"
+                        value="{{ old('quantity', 1) }}"
                         min="1"
-                        class="form-control"
+                        class="form-control @error('quantity') is-invalid @enderror"
                         style="width: 90px;"
                         required
                     >
                 </div>
-                <div class="d-flex gap-2 align-items-center">
+
+                @error('quantity')
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+
+                <div class="d-flex gap-2 align-items-center mt-3">
                     <button class="btn-primary" type="submit">Dodaj do koszyka</button>
                 </div>
             </form>

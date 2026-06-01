@@ -2,28 +2,29 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Koszyk</title>
-    <h1 class="mb-4 h1">Koszyk</h1>
+<title>Koszyk</title>
 
-@if(session('success'))
-    <div class="alert-overlay">
-        <div class="custom-alert success">
-            <h3>Sukces</h3>
-            <p>{{ session('success') }}</p>
-            <button onclick="this.closest('.alert-overlay').remove()">OK</button>
-        </div>
-    </div>
-@endif
+<h1 class="mb-4 h1">Koszyk</h1>
 
-@if(session('error'))
-    <div class="alert-overlay">
-        <div class="custom-alert error">
-            <h3>Błąd</h3>
-            <p>{{ session('error') }}</p>
-            <button onclick="this.closest('.alert-overlay').remove()">OK</button>
+    @if(session('success'))
+        <div class="alert-overlay">
+            <div class="custom-alert success">
+                <h3>Sukces</h3>
+                <p>{{ session('success') }}</p>
+                <button onclick="this.closest('.alert-overlay').remove()">OK</button>
+            </div>
         </div>
-    </div>
-@endif
+    @endif
+
+    @if(session('error'))
+        <div class="alert-overlay">
+            <div class="custom-alert error">
+                <h3>Błąd</h3>
+                <p>{{ session('error') }}</p>
+                <button onclick="this.closest('.alert-overlay').remove()">OK</button>
+            </div>
+        </div>
+    @endif
 
     @if(empty($cart))
         <div class="alert alert-info empty-cart">
@@ -55,13 +56,14 @@
                             <td>{{ $item['type'] ?? '-' }}</td>
                             <td>{{ number_format($item['price'], 2, ',', ' ') }} zł</td>
                             <td>
-                                <form action="{{ route('cart.update', $item['id']) }}" method="POST" class="quantity-form">
+                                <form action="{{ route('cart.update', $item['cart_key']) }}" method="POST" class="quantity-form">
                                     @csrf
                                     <input
                                         type="number"
                                         name="quantity"
                                         value="{{ $item['quantity'] }}"
                                         min="1"
+                                        max="{{ $item['stock'] }}"
                                         class="form-control quantity-input"
                                         required
                                     >
@@ -70,7 +72,7 @@
                             </td>
                             <td>{{ number_format($item['price'] * $item['quantity'], 2, ',', ' ') }} zł</td>
                             <td>
-                                <form action="{{ route('cart.remove', $item['id']) }}" method="POST">
+                                <form action="{{ route('cart.remove', $item['cart_key']) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm">Usuń</button>
                                 </form>

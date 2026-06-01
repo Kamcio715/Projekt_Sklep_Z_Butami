@@ -35,30 +35,41 @@ class CartController extends Controller
     {
         $request->validate([
             'quantity' => 'required|integer|min:1',
+            'size' => 'required',
         ]);
 
-        if($shoe->stock <= 0){
+        if ($shoe->stock <= 0) {
             return redirect()->back()->with('error', 'Produkt jest niedostępny.');
+        }
+
+        $availableSizes = is_array($shoe->size) ? $shoe->size : [$shoe->size];
+        $selectedSize = (string) $request->input('size');
+
+        if (!in_array($selectedSize, array_map('strval', $availableSizes), true)) {
+            return redirect()->back()->with('error', 'Wybrano nieprawidłowy rozmiar.');
         }
 
         $quantity = max(1, (int) $request->input('quantity', 1));
         $cart = $this->getCart();
 
-        $currentQuantity = isset($cart[$shoe->id]) ? $cart[$shoe->id]['quantity'] : 0;
+        $cartKey = $shoe->id . '_' . $selectedSize;
+
+        $currentQuantity = isset($cart[$cartKey]) ? $cart[$cartKey]['quantity'] : 0;
         $newQuantity = $currentQuantity + $quantity;
 
         if ($newQuantity > $shoe->stock) {
             return redirect()->back()->with('error', 'Nie ma tyle produktów w magazynie.');
         }
 
-        if (isset($cart[$shoe->id])) {
-            $cart[$shoe->id]['quantity'] += $quantity;
+        if (isset($cart[$cartKey])) {
+            $cart[$cartKey]['quantity'] += $quantity;
         } else {
-            $cart[$shoe->id] = [
+            $cart[$cartKey] = [
                 'id' => $shoe->id,
+                'cart_key' => $cartKey,
                 'name' => $shoe->name,
                 'brand' => $shoe->brand,
-                'size' => $shoe->size,
+                'size' => $selectedSize,
                 'description' => $shoe->description,
                 'type' => $shoe->type,
                 'price' => $shoe->price,
@@ -73,35 +84,43 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Dodano produkt do koszyka.');
     }
 
-    public function update(Request $request, Shoe $shoe)
+    public function update(Request $request, string $cartKey)
     {
         $request->validate([
             'quantity' => 'required|integer|min:1',
         ]);
+
+        $cart = $this->getCart();
+
+        if (!isset($cart[$cartKey])) {
+            return redirect()->route('cart.index')->with('error', 'Nie znaleziono produktu w koszyku.');
+        }
+
+        $shoe = Shoe::find($cart[$cartKey]['id']);
+
+        if (!$shoe) {
+            return redirect()->route('cart.index')->with('error', 'Produkt już nie istnieje.');
+        }
 
         if ($request->quantity > $shoe->stock) {
             return redirect()->route('cart.index')
                 ->with('error', 'Nie możesz ustawić większej ilości niż dostępna w magazynie.');
         }
 
-        $cart = session()->get('cart', []);
+        $cart[$cartKey]['quantity'] = (int) $request->quantity;
+        $cart[$cartKey]['stock'] = $shoe->stock;
 
-        if (isset($cart[$shoe->id])) {
-            $cart[$shoe->id]['quantity'] = (int) $request->quantity;
-            $cart[$shoe->id]['stock'] = $shoe->stock;
-            session()->put('cart', $cart);
-        }
+        $this->saveCart($cart);
 
         return redirect()->route('cart.index')->with('success', 'Ilość została zaktualizowana.');
     }
 
-
-    public function remove(Shoe $shoe)
+    public function remove(string $cartKey)
     {
         $cart = $this->getCart();
 
-        if (isset($cart[$shoe->id])) {
-            unset($cart[$shoe->id]);
+        if (isset($cart[$cartKey])) {
+            unset($cart[$cartKey]);
             $this->saveCart($cart);
         }
 
