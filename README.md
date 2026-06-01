@@ -364,6 +364,17 @@ utworzenie rekordu zamówienia.
 
 ===================================================================
 
+Testy przeglądarkowe strony BUTY.PL
+
+Główna strona działa poprawnie. Po dodaniu butów do bazy danych przez plik "insert buty.sql" na stronie pojawiły się zdjęcia oraz strony dla każdego buta.
+
+Strona rejestracji sprawuje się bez błędów. Po potwierdzeniu adresu E-mail profil się w pełni pokazuje oraz można zmienić jego dane.
+Dodawanie recenzji oraz ich edycja działa bez błędów.
+Dodawanie, usuwanie oraz zmiana ilości butów w koszyku bez błędów. Buty nie posiadane w magazynie nie zostaną dodane. Można wybrać rozmiar buta.
+Składanie zamówień działa bez błędów. Złożone zamówienia można zobaczyć pod menu użytkownika.
+
+===================================================================
+
 7. Instrukcja użytkownika
 
 ===================================================================
