@@ -58,8 +58,8 @@
                 </div>
             </form>
 
-            <div style="margin-top: 15px;">
-                <a href="{{ route('cart.index') }}">Przejdź do koszyka</a>
+            <div style="margin-top: 15px; color: black">
+                <a style="color: black" href="{{ route('cart.index') }}">Przejdź do koszyka</a>
             </div>
 
             @if(isset($recommendedShoes) && $recommendedShoes->count())
@@ -98,7 +98,7 @@
         </div>
     @endif
 </div>
-    <section class="bg-gray-200 pt-lg-14 pb-lg-16 pt-5 pb-8 mt-5">
+    <section class="bg-gray-200 pt-lg-14 pb-lg-16 pt-5 pb-8 mt-5 recenzje">
         <div class="container">
             <div class="row mb-lg-10 mb-5">
                 <div class="offset-lg-1 col-lg-10 col-12">
@@ -127,11 +127,6 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-4 text-md-end mt-4 mt-md-0">
-                            @guest
-                                <a href="{{ route('login') }}" class="btn btn-primary">Zaloguj się</a>
-                            @endguest
-                        </div>
                     </div>
                 </div>
             </div>
@@ -160,12 +155,11 @@
                                                 <input type="radio" id="star1" name="rating" value="1">
                                                 <label for="star1" class="bi bi-star-fill"></label>
                                             </div>
-                                            <p class="text-muted mt-2">Click to rate</p>
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="content" class="form-label">Twoja opinia</label>
+                                        <h4 for="content" class="form-label">Twoja opinia</h4>
                                         <textarea name="content" id="content" rows="4" class="form-control @error('content') is-invalid @enderror" placeholder="Napisz, co sądzisz o tych butach..." required>{{ old('content') }}</textarea>
                                         @error('content')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -177,9 +171,13 @@
                             </div>
                         </div>
                     @else
-                        <div class="alert alert-info mb-0">
+                        <a href="{{ route('login') }}" class="btn btn-primary">
+                            Zaloguj się
+                        </a>
+
+                        <p class="login-info">
                             Zaloguj się, aby dodać opinię.
-                        </div>
+                        </p>
                     @endauth
                 </div>
             </div>
@@ -192,11 +190,6 @@
                                 <div class="item">
                                     <div class="card">
                                         <div class="card-body text-center p-6">
-                                            <img
-                                                src="https://ui-avatars.com/api/?name={{ urlencode($review->user->name ?? 'Użytkownik') }}&background=0D8ABC&color=fff&size=128"
-                                                alt="{{ $review->user->name ?? 'Użytkownik' }}"
-                                                class="avatar avatar-lg rounded-circle"
-                                            >
 
                                             <p class="mb-0 mt-3">{{ $review->content }}</p>
 

@@ -1,0 +1,178 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Roboto Condensed",sans-serif;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+    background-color: black;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    height: 10vh;
+    min-height: 78px;
+}
+.header a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.logo img{
+    height: 83px;
+    box-sizing: border-box;
+}
+.logo{
+    height: auto;
+}
+.tytul {
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.prawo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.usericon, #searchlogo, .prawo a img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+#searchlogo{
+    display: none;
+}
+.usermenu {
+    position: absolute;
+    right: 0;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px 0;
+    width: 160px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-300px);
+    transition: .6s;
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all .3s ease;
+    text-align: center;
+}
+
+.usermenu a {
+    font-size: 1.1em;
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+.usermenu a:nth-child(3){
+    color: red;
+}
+.usermenu a:nth-child(3):hover{
+    color: rgb(100, 0, 0);
+}
+.usermenu button{
+    font-size: 1.1em;
+    background-color: black;
+    color: white;
+    border: none;
+    text-align: center;
+    margin: 10px 15px;
+    font-family: "Roboto Condensed", sans-serif;
+    transition: 0.3s;
+}
+.usermenu a:hover, .usermenu button:hover {
+    cursor: pointer;
+    color: #777;
+}
+
+.usermenu.active {
+    opacity: 1;
+    top: 10vh;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.min-h-screen{
+    min-height:calc(100vh - 78px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.min-h-screen form{
+    width:100%;
+    max-width:550px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    border:1px solid #e5e5e5;
+}
+
+.min-h-screen h2{
+    font-size:36px;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+.min-h-screen p{
+    color:#555;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.min-h-screen button{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:12px;
+    background:black;
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.min-h-screen button:hover{
+    background:#222;
+    transform:translateY(-2px);
+}
+
+.min-h-screen button:active{
+    transform:translateY(0);
+}
+
+.success-message{
+    background:#e8f8ec;
+    color:#198754;
+    border:1px solid #b7e4c7;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:20px;
+    text-align:center;
+    font-weight:600;
+}
+
+@media(max-width:768px){
+    .min-h-screen form{
+        padding:25px;
+    }
+
+    .min-h-screen h2{
+        font-size:28px;
+    }
+}
