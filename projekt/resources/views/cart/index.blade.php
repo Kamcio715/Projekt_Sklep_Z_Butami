@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <title>Koszyk</title>
-
 <h1 class="mb-4 h1">Koszyk</h1>
 
     @if(session('success'))
@@ -48,12 +47,12 @@
                 <tbody>
                     @foreach($cart as $item)
                         <tr>
-                            <td>{{ $item['name'] }}</td>
-                            <td>{{ $item['brand'] ?? '-' }}</td>
-                            <td>{{ $item['size'] ?? '-' }}</td>
-                            <td>{{ $item['type'] ?? '-' }}</td>
-                            <td>{{ number_format($item['price'], 2, ',', ' ') }} zł</td>
-                            <td>
+                            <td data-label="Produkt">{{ $item['name'] }}</td>
+                            <td data-label="Marka">{{ $item['brand'] ?? '-' }}</td>
+                            <td data-label="Rozmiar">{{ $item['size'] ?? '-' }}</td>
+                            <td data-label="Rodzaj">{{ $item['type'] ?? '-' }}</td>
+                            <td data-label="Cena">{{ number_format($item['price'], 2, ',', ' ') }} zł</td>
+                            <td data-label="Ilość">
                                 <form action="{{ route('cart.update', $item['cart_key']) }}" method="POST" class="quantity-form">
                                     @csrf
                                     <input
@@ -68,8 +67,8 @@
                                     <button type="submit" class="btn btn-primary btn-sm">Zmień</button>
                                 </form>
                             </td>
-                            <td>{{ number_format($item['price'] * $item['quantity'], 2, ',', ' ') }} zł</td>
-                            <td>
+                            <td data-label="Razem">{{ number_format($item['price'] * $item['quantity'], 2, ',', ' ') }} zł</td>
+                            <td data-label="Akcja">
                                 <form action="{{ route('cart.remove', $item['cart_key']) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm">Usuń</button>

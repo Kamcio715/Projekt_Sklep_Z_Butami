@@ -14,9 +14,8 @@
 <body>
     <section class="hero">
         <div class="heroleft">
-            <h1>„BARDZO DOBRE SUPER BUTY PAPUESZ POLAK POLECA 5/5"</h1>
-            <h1> - GRAŻYNA ŻARKO</h1>
-            <button class="herobtn">ZGARNIJ TERAZ</button>
+            <h1>„Buty oryginalne, żadne podróbki, szybka dostawa i dobre ceny 5/5"</h1>
+            <h1> - CEO, Andrzej Mikołajczow</h1>
         </div>
         <div class="heroimg">
             <img src="{{ asset('storage/zdj/hero.png') }}" alt="but">
@@ -54,8 +53,9 @@
                     </option>
                 @endforeach
             </select>
-        </div>
-        <hr>
+            </div>
+            <hr>
+
             <div class="filtrgrupa">
             <h1>KATEGORIA</h1>
             <select id="kat" name="category">
@@ -107,7 +107,7 @@
             <button id="reset">RESETUJ FILTRY</button>
         </div>
     </div>
-    <section class="container">
+    <section class="container" id="buty">
         @if($shoes->count())
             <ul class="grid">
                 @foreach($shoes as $shoe)
