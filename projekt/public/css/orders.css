@@ -18,7 +18,10 @@ body {
     z-index: 1000;
     height: 10vh;
     min-height: 78px;
-    color: white;
+}
+.header a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
 .logo img{
     height: 83px;
@@ -62,6 +65,7 @@ body {
     transition: all .3s ease;
     text-align: center;
 }
+
 .usermenu a {
     font-size: 1.1em;
     display: block;
@@ -90,14 +94,12 @@ body {
     cursor: pointer;
     color: #777;
 }
+
 .usermenu.active {
     opacity: 1;
     top: 10vh;
     transform: translateY(0);
     pointer-events: auto;
-}
-.koszyk, .user {
-    width: 22px;
 }
 .orders-page{
     display: flex;

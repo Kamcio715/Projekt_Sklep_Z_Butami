@@ -102,10 +102,6 @@ body {
     pointer-events: auto;
 }
 
-.koszyk, .user {
-    width: 22px;
-}
-
 .hero {
     height: 50vh;
     min-height: 400px;
