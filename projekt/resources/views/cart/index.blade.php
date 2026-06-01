@@ -1,23 +1,29 @@
-
 @extends('layouts.app')
-
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Koszyk</title>
     <h1 class="mb-4 h1">Koszyk</h1>
 
-    <!-- @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
+@if(session('success'))
+    <div class="alert-overlay">
+        <div class="custom-alert success">
+            <h3>Sukces</h3>
+            <p>{{ session('success') }}</p>
+            <button onclick="this.closest('.alert-overlay').remove()">OK</button>
         </div>
-    @endif -->
+    </div>
+@endif
 
-    @if(session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
+@if(session('error'))
+    <div class="alert-overlay">
+        <div class="custom-alert error">
+            <h3>Błąd</h3>
+            <p>{{ session('error') }}</p>
+            <button onclick="this.closest('.alert-overlay').remove()">OK</button>
         </div>
-    @endif
+    </div>
+@endif
 
     @if(empty($cart))
         <div class="alert alert-info empty-cart">
@@ -49,7 +55,7 @@
                             <td>{{ $item['type'] ?? '-' }}</td>
                             <td>{{ number_format($item['price'], 2, ',', ' ') }} zł</td>
                             <td>
-                                <form action="{{ route('cart.update', $item['id']) }}" method="POST" class="d-flex gap-2 justify-content-center">
+                                <form action="{{ route('cart.update', $item['id']) }}" method="POST" class="quantity-form">
                                     @csrf
                                     <input
                                         type="number"
