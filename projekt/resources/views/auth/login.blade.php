@@ -1,40 +1,39 @@
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+    <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <div>
-            <x-input-label for="name" value="Imię i nazwisko" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
-
-        <div class="mt-4">
             <x-input-label for="email" value="Adres e-mail" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <div class="mt-4">
             <x-input-label for="password" value="Hasło" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" value="Powtórz hasło" />
-            <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        <div class="block mt-4">
+            <label for="remember_me">
+                <input id="remember_me" type="checkbox" name="remember">
+                <span>Zapamiętaj mnie</span>
+            </label>
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none" href="{{ route('login') }}">
-                Masz już konto?
-            </a>
+            @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none" href="{{ route('password.request') }}">
+                    Nie pamiętasz hasła?
+                </a>
+            @endif
 
             <x-primary-button class="ms-4">
-                Zarejestruj się
+                Zaloguj się
             </x-primary-button>
         </div>
     </form>
