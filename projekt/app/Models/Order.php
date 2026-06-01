@@ -14,13 +14,15 @@ class Order extends Model
         'customer_email',
         'customer_phone',
         'address',
-        'total_amount',
+        'delivery_method',
+        'payment_method',
+        'payment_status',
+        'total',
         'items',
     ];
-
     protected $casts = [
         'items' => 'array',
-        'total_amount' => 'decimal:2',
+        'total' => 'decimal:2',
     ];
 
     public function user(): BelongsTo

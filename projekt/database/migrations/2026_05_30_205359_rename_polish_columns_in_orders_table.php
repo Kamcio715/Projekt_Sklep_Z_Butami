@@ -14,7 +14,7 @@ return new class extends Migration
             $table->renameColumn('email_klienta', 'customer_email');
             $table->renameColumn('telefon_klienta', 'customer_phone');
             $table->renameColumn('adres', 'address');
-            $table->renameColumn('kwota', 'total_amount');
+            $table->renameColumn('kwota', 'total');
             $table->renameColumn('przedmioty', 'items');
         });
     }
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->renameColumn('customer_email', 'email_klienta');
             $table->renameColumn('customer_phone', 'telefon_klienta');
             $table->renameColumn('address', 'adres');
-            $table->renameColumn('total_amount', 'kwota');
+            $table->renameColumn('total', 'kwota');
             $table->renameColumn('items', 'przedmioty');
         });
     }
