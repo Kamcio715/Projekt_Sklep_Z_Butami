@@ -192,6 +192,7 @@ h1 {
 /* AKCJE */
 td.d-flex {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
 }

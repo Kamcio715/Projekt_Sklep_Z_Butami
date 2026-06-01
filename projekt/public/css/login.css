@@ -114,7 +114,7 @@ body {
 }
 
 .auth-page {
-    min-height: calc(100vh - 78px - 170px);
+    min-height: calc(100vh - 78px - 20vh);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -209,6 +209,7 @@ button:hover{
     color: #fff;
     padding: 25px 20px;
     margin-top: 0;
+    height: 20vh;
 }
 .footercontainer {
   max-width: 1200px;
