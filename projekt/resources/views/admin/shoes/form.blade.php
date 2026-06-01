@@ -50,8 +50,15 @@
 
     <div class="mb-3">
         <label class="form-label">Rozmiar</label>
-        <input placeholder="42" type="number" step="0.5" name="size" value="{{ old('size', $shoe->size ?? '') }}"
-            class="form-control @error('size') is-invalid @enderror">
+        <input
+            placeholder="Np. 40, 41, 42, 43"
+            type="text"
+            name="size"
+            value="{{ old('size', isset($shoe) ? implode(', ', $shoe->size ?? []) : '') }}"
+            class="form-control @error('size') is-invalid @enderror"
+        >
+        <small class="text-muted">Podaj kilka rozmiarów oddzielonych przecinkami.</small>
+
         @error('size')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror

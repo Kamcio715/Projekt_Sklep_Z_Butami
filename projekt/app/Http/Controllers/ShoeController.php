@@ -87,13 +87,19 @@ class ShoeController extends Controller
             'brand' => 'required|string|max:255',
             'category' => 'nullable|string|max:255',
             'type' => 'nullable|string|max:255',
-            'size' => 'required|numeric|min:20|max:50',
+            'size' => 'required|string',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
             'color' => 'nullable|string|max:100',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048',
         ]);
+
+        $sizes = array_map('trim', explode(',', $request->size));
+        $sizes = array_filter($sizes, fn ($size) => $size !== '');
+        $sizes = array_values($sizes);
+
+        $data['size'] = $sizes;
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('shoes', 'public');
@@ -116,13 +122,19 @@ class ShoeController extends Controller
             'brand' => 'required|string|max:255',
             'category' => 'nullable|string|max:255',
             'type' => 'nullable|string|max:255',
-            'size' => 'required|numeric|min:20|max:50',
+            'size' => 'required|string',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
             'color' => 'nullable|string|max:100',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048',
         ]);
+
+        $sizes = array_map('trim', explode(',', $request->size));
+        $sizes = array_filter($sizes, fn ($size) => $size !== '');
+        $sizes = array_values($sizes);
+
+        $data['size'] = $sizes;
 
         if ($request->hasFile('image')) {
             if ($shoe->image) {
@@ -135,7 +147,7 @@ class ShoeController extends Controller
         $shoe->update($data);
 
         return redirect()->route('admin.shoes.index')->with('success', 'But został zaktualizowany.');
-    }
+}
 
     public function destroy(Shoe $shoe)
     {
