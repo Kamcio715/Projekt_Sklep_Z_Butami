@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    color: black;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+    background-color: black;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    height: 10vh;
+    min-height: 78px;
+    color: white;
+}
+.logo img{
+    height: 83px;
+    box-sizing: border-box;
+}
+.logo{
+    height: auto;
+}
+.tytul {
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.prawo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.usericon, #searchlogo, .prawo a img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+.usermenu {
+    position: absolute;
+    right: 0;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px 0;
+    width: 160px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-300px);
+    transition: .6s;
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all .3s ease;
+    text-align: center;
+}
+
+.usermenu a {
+    font-size: 1.1em;
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+.usermenu a:nth-child(3){
+    color: red;
+}
+.usermenu a:nth-child(3):hover{
+    color: rgb(100, 0, 0);
+}
+.usermenu button{
+    font-size: 1.1em;
+    background-color: black;
+    color: white;
+    border: none;
+    text-align: center;
+    margin: 10px 15px;
+    font-family: "Roboto Condensed", sans-serif;
+    transition: 0.3s;
+}
+.usermenu a:hover, .usermenu button:hover {
+    cursor: pointer;
+    color: #777;
+}
+
+.usermenu.active {
+    opacity: 1;
+    top: 10vh;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.koszyk, .user {
+    width: 22px;
+}
+.user-edit {
+    text-align: center;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.user-edit .card {
+    border: 3px solid #000;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 15px 35px rgba(0,0,0,.15);
+}
+
+.user-edit .card-body {
+    padding: 40px;
+}
+
+.user-edit h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 35px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.user-edit .form-label {
+    font-weight: 700;
+    font-size: 1.7em;
+    margin: 16px 0;
+    display: block;
+}
+
+.user-edit .form-control {
+    border: 2px solid #dcdcdc;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 16px;
+    transition: all .3s ease;
+}
+
+.user-edit .form-control:hover {
+    border-color: #999;
+}
+
+.user-edit .form-control:focus {
+    border-color: #000;
+    box-shadow: 0 0 12px rgba(0,0,0,.15);
+}
+
+.alert-warning {
+    border: 2px solid #ffc107;
+    border-radius: 12px;
+    padding: 15px;
+    font-weight: 600;
+    margin: 16px 0;
+}
+.btn-save {
+    display: inline-block;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 14px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,.25);
+    margin-top: 16px;
+}
+
+.btn-save:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.btn-save:active {
+    transform: translateY(1px);
+}
+@media (max-width: 768px) {
+    .user-edit{
+        width: 80%
+    }
+}

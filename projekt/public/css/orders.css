@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    color: black;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+    background-color: black;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    height: 10vh;
+    min-height: 78px;
+    color: white;
+}
+.logo img{
+    height: 83px;
+    box-sizing: border-box;
+}
+.logo{
+    height: auto;
+}
+.tytul {
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.prawo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.usericon, #searchlogo, .prawo a img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+.usermenu {
+    position: absolute;
+    right: 0;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px 0;
+    width: 160px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-300px);
+    transition: .6s;
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all .3s ease;
+    text-align: center;
+}
+.usermenu a {
+    font-size: 1.1em;
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+.usermenu a:nth-child(3){
+    color: red;
+}
+.usermenu a:nth-child(3):hover{
+    color: rgb(100, 0, 0);
+}
+.usermenu button{
+    font-size: 1.1em;
+    background-color: black;
+    color: white;
+    border: none;
+    text-align: center;
+    margin: 10px 15px;
+    font-family: "Roboto Condensed", sans-serif;
+    transition: 0.3s;
+}
+.usermenu a:hover, .usermenu button:hover {
+    cursor: pointer;
+    color: #777;
+}
+.usermenu.active {
+    opacity: 1;
+    top: 10vh;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.koszyk, .user {
+    width: 22px;
+}
+.orders-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 30px;
+}
+.orders-page .table-responsive{
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+.orders-page h1{
+    font-size: 2.2rem;
+    font-weight: 800;
+    padding-bottom: 15px;
+}
+.table-responsive {
+    width: 100%;
+    max-width: 1200px;
+}
+.orders-page .table {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+.orders-page thead {
+    background: black;
+    color: white;
+}
+.orders-page th,
+.orders-page td {
+    padding: 15px;
+    vertical-align: middle;
+}
+.orders-page tbody tr:hover {
+    background: #f8f9fa;
+}
+.orders-page .pagination {
+    justify-content: center;
+    margin-top: 20px;
+}
+@media (max-width: 480px){
+    .orders-page{
+        padding: 10px;
+    }
+    .orders-page h1{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .table{
+        width:100%;
+        border:none;
+    }
+    .table thead{
+        display:none;
+    }
+    .table,
+    .table tbody,
+    .table tr,
+    .table td{
+        display:block;
+        width:100%;
+    }
+    .table tr{
+        border:2px solid #000;
+        border-radius:12px;
+        margin-bottom:15px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 4px 10px rgba(0,0,0,.1);
+    }
+    .table td{
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        padding: 0;
+    }
+    .table td::before{
+        content: attr(data-label);
+        background: black;
+        color: white;
+        padding: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .table td{
+        border-bottom: 1px solid #eee;
+    }
+    .table td:last-child{
+        border-bottom:none;
+    }
+}
