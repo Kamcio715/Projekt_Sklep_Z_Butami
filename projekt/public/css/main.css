@@ -213,10 +213,10 @@ body {
     align-items: center;
     text-align: center;
     position: fixed;
-    top: 10vh;
+    top: 0vh;
     left: -400px;
     width: 350px;
-    height: 90vh;
+    height: 100vh;
     background-color: white;
     color: black;
     padding: 20px;
