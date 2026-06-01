@@ -370,5 +370,3 @@ button:hover{
         font-size: 10px;
     }
 }
-
-Najważniejsze: nie dawaj position: fixed dla .header na telefonie, jeśli nie chcesz, żeby nachodził na formularz.

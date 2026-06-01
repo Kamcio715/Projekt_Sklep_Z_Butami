@@ -60,18 +60,19 @@
             @yield('content')
             </div>
         </main>
-        <footer class="footer">
-            <div class="footercontainer">
-                <p class="footertitle">POMOC</p>
-                <hr>
-                <div class="footerlink">
-                    <a href="">Skontaktuj się z nami</a>
-                    <a href="">Polityka prywatności</a>
-                    <a href="">Regulamin</a>
-                </div>
-                <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone. Spierdalaj</p>
-            </div>
-        </footer>
+
     </div>
+    <footer class="footer">
+        <div class="footercontainer">
+            <p class="footertitle">POMOC</p>
+            <hr>
+            <div class="footerlink">
+                <a href="">Skontaktuj się z nami</a>
+                <a href="">Polityka prywatności</a>
+                <a href="">Regulamin</a>
+            </div>
+            <p class="footertm">Buty.pl™. Wszelkie prawa zastrzeżone. Spierdalaj</p>
+        </div>
+    </footer>
     </body>
 </html>
