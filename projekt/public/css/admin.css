@@ -18,17 +18,20 @@ body {
     color: #111;
 }
 .header {
-    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 60px;
     background-color: black;
-    position: static;
+    position: relative;
     width: 100%;
     z-index: 1000;
     height: 10vh;
     min-height: 78px;
+}
+.header a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
 .logo img{
     height: 83px;
@@ -61,20 +64,45 @@ body {
     padding: 10px 0;
     width: 160px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-300px);
+    transition: .6s;
+    z-index: 1;
+    position: absolute;
+    top: 100%;
     opacity: 0;
-    transform: translateY(-100px);
-    transition: 0.3s;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all .3s ease;
+    text-align: center;
 }
 
 .usermenu a {
+    font-size: 1.1em;
     display: block;
     padding: 10px 15px;
     text-decoration: none;
     color: rgb(255, 255, 255);
+    transition: 0.3s;
 }
-
-.usermenu a:hover {
+.usermenu a:nth-child(3){
+    color: red;
+}
+.usermenu a:nth-child(3):hover{
+    color: rgb(100, 0, 0);
+}
+.usermenu button{
+    font-size: 1.1em;
+    background-color: black;
+    color: white;
+    border: none;
+    text-align: center;
+    margin: 10px 15px;
+    font-family: "Roboto Condensed", sans-serif;
+    transition: 0.3s;
+}
+.usermenu a:hover, .usermenu button:hover {
     cursor: pointer;
+    color: #777;
 }
 
 .usermenu.active {
@@ -82,10 +110,6 @@ body {
     top: 10vh;
     transform: translateY(0);
     pointer-events: auto;
-}
-
-.koszyk, .user {
-    width: 22px;
 }
 /* NAGŁÓWEK */
 .admin-header {

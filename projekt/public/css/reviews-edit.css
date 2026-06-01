@@ -18,7 +18,10 @@ body {
     z-index: 1000;
     height: 10vh;
     min-height: 78px;
-    color: white;
+}
+.header a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
 .logo img{
     height: 83px;
@@ -97,10 +100,6 @@ body {
     top: 10vh;
     transform: translateY(0);
     pointer-events: auto;
-}
-
-.koszyk, .user {
-    width: 22px;
 }
 .review-edit {
     max-width: 850px;
