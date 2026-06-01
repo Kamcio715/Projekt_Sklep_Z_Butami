@@ -1,4 +1,4 @@
-* {
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -150,7 +150,10 @@ html, body {
     font-size: 24px;
     font-weight: bold;
 }
-
+#size {
+    width: 150px !important;
+    height: 37px;
+}
 /* COLORS */
 .product__colors img {
     width: 50px;
@@ -203,7 +206,7 @@ html, body {
 }
 .form-control {
     width: 70px !important;
-    height: 45px;
+        height: 45px;
     border: 2px solid #ddd;
     border-radius: 8px;
     text-align: center;
@@ -290,6 +293,7 @@ html, body {
     text-align: center;
     transition: 0.3s;
     border: 1px solid #eee;
+    width: 100%;
 }
 
 .card img {
@@ -463,7 +467,16 @@ html, body {
     font-size:14px;
     color:#555;
 }
+.card a,
+.card a:visited {
+    color: #000;
+    text-decoration: none;
+}
 
+.card a:hover {
+    color: #000;
+    text-decoration: none;
+}
 .text-warning{
     color:#f5b301 !important;
 }
