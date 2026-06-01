@@ -1,7 +1,304 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden; /* wyłącza scroll */
+    font-family:"Roboto Condensed",sans-serif;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+    background-color: black;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    height: 10vh;
+    min-height: 78px;
+}
+.header a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.logo img{
+    height: 83px;
+    box-sizing: border-box;
+}
+.logo{
+    height: auto;
+}
+.tytul {
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.prawo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.usericon, #searchlogo, .prawo a img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+#searchlogo{
+    display: none;
+}
+.usermenu {
+    position: absolute;
+    right: 0;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px 0;
+    width: 160px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-300px);
+    transition: .6s;
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all .3s ease;
+    text-align: center;
+}
+
+.usermenu a {
+    font-size: 1.1em;
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+.usermenu a:nth-child(3){
+    color: red;
+}
+.usermenu a:nth-child(3):hover{
+    color: rgb(100, 0, 0);
+}
+.usermenu button{
+    font-size: 1.1em;
+    background-color: black;
+    color: white;
+    border: none;
+    text-align: center;
+    margin: 10px 15px;
+    font-family: "Roboto Condensed", sans-serif;
+    transition: 0.3s;
+}
+.usermenu a:hover, .usermenu button:hover {
+    cursor: pointer;
+    color: #777;
+}
+
+.usermenu.active {
+    opacity: 1;
+    top: 10vh;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.min-h-screen{
+    flex: 1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.min-h-screen form{
+    width:100%;
+    max-width:550px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    border:1px solid #e5e5e5;
+}
+
+.min-h-screen h2{
+    font-size:36px;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+.min-h-screen p{
+    color:#555;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.min-h-screen button{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:12px;
+    background:black;
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.min-h-screen button:hover{
+    background:#222;
+    transform:translateY(-2px);
+}
+
+.min-h-screen button:active{
+    transform:translateY(0);
+}
+
+.success-message{
+    background:#e8f8ec;
+    color:#198754;
+    border:1px solid #b7e4c7;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:20px;
+    text-align:center;
+    font-weight:600;
+}
+.footer{
+    background:#111;
+    color:#fff;
+    padding:25px 20px;
+    width:100%;
+}
+.footercontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footertitle {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.footerlink {
+  margin-bottom: 20px;
+}
+.footercontainer hr{
+    margin: 25px 0px;
+}
+.footerlink a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+.footerlink a:hover {
+  color: #fff;
+}
+.footertm {
+  font-size: 12px;
+  color: #777;
+}
+@media(max-width:768px){
+    .header {
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 50px;
+    }
+    .logo img{
+        height: 45px;
+    }
+    .tytul {
+        font-size: 30px;
+    }
+    .prawo img,.prawo a {
+        height: 40px;
+    }
+    .min-h-screen form{
+        padding:25px;
+    }
+
+    .min-h-screen h2{
+        font-size:28px;
+    }
+    .footer {
+        padding: 20px 10px;
+    }
+}
+@media (max-width: 480px) {
+    .tytul {
+        font-size: 30px;
+    }
+    .prawo img,.prawo a {
+        height: 32px;
+    }
+    .usericon, #searchlogo, .prawo a img {
+        height: 32px;
+        width: 32px;
+    }
+    .min-h-screen{
+        padding:90px 10px 20px;
+    }
+
+    form{
+        padding:20px 15px;
+    }
+
+    form h2{
+        font-size:22px;
+    }
+
+    form p{
+        font-size:13px !important;
+    }
+
+    .footerlink a{
+        display:block;
+        margin:8px 0;
+    }
+    .footer {
+        padding: 15px 10px;
+    }
+
+    .footertitle {
+        font-size: 18px;
+    }
+
+    .footerlink {
+        margin-bottom: 10px;
+    }
+
+    .footerlink a {
+        display: block;
+        margin: 6px 0;
+        font-size: 14px;
+    }
+
+    .footertm {
+        font-size: 10px;
+    }
+}
+</style>
+<!-- <link rel="stylesheet" href="{{ asset('css/verify-email.css') }}"> -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 <div class="min-h-screen">
