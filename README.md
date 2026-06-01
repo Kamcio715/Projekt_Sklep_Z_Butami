@@ -302,6 +302,8 @@ Dane wejściowe
 - imię,
 - nazwisko,
 - adres e-mail,
+- adres zamieszkania,
+- numer telefonu,
 - hasło.
 
 Warunki poprawności
