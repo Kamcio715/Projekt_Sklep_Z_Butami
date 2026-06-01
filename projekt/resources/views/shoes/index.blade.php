@@ -45,36 +45,35 @@
         <hr>
         <div class="filtrgrupa">
             <h1>MARKA</h1>
-            <select id="marka" name="brand">
-                <option value="">Wszystkie</option>
+            <select id="marka" name="marka">
+                <option value=""></option>
                 @foreach($brands as $brand)
-                    <option value="{{ $brand->brand }}" {{ request('brand') == $brand->brand ? 'selected' : '' }}>
-                        {{ $brand->brand }}
-                    </option>
-                @endforeach
-            </select>
-            </div>
-            <hr>
-
-            <div class="filtrgrupa">
-            <h1>KATEGORIA</h1>
-            <select id="kat" name="category">
-                <option value="">Wszystkie</option>
-                @foreach($categories as $category)
-                    <option value="{{ $category->category }}" {{ request('category') == $category->category ? 'selected' : '' }}>
-                        {{ $category->category }}
+                    <option value="{{ $brand }}" {{ request('marka') === $brand ? 'selected' : '' }}>
+                        {{ $brand }}
                     </option>
                 @endforeach
             </select>
         </div>
-        <hr>
+            <hr>
+        <div class="filtrgrupa">
+            <h1>KATEGORIA</h1>
+            <select id="kat" name="kat">
+                <option value=""></option>
+                @foreach($categories as $category)
+                    <option value="{{ $category }}" {{ request('kat') === $category ? 'selected' : '' }}>
+                        {{ $category }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+            <hr>
         <div class="filtrgrupa">
             <h1>RODZAJ</h1>
-            <select id="rodz" name="type">
-                <option value="">Wszystkie</option>
+            <select id="rodz" name="rodz">
+                <option value=""></option>
                 @foreach($types as $type)
-                    <option value="{{ $type->type }}" {{ request('type') == $type->type ? 'selected' : '' }}>
-                        {{ $type->type }}
+                    <option value="{{ $type }}" {{ request('rodz') === $type ? 'selected' : '' }}>
+                        {{ $type }}
                     </option>
                 @endforeach
             </select>
