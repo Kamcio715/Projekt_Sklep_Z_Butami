@@ -438,7 +438,9 @@ Składanie zamówień działa bez błędów. Złożone zamówienia można zobacz
 
 - Wejść w koszyk.
 - Upewnić się, czy wybrane produkty są poprawne.
-- 
+- Kliknąć "Przejdź do zamówienia".
+- Wypełnić dane.
+- Kliknąć "Zamów"
 
 ===================================================================
 
