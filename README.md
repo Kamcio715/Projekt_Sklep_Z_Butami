@@ -360,6 +360,27 @@ utworzenie rekordu zamówienia.
 
 ===================================================================
 
+5.5 Krok po kroku żeby aplikacja działała:
+1. Pobrać najnowszą wersję xampp, w folderze xampp/php otwórz plik php.ini i odkomentuj linijki (jeśli nie są odkomentowane): 938, 944, 962 (linijki z mysql i zip)
+2. Wejść w zmienne środowiskowe, zmienne systemowe, nową zmienną w której dajecie ścieżkę *dysk*\xampp\php\php.exe i w zmiennej Path dodać  *dysk*\xampp\php
+3. Pobrać Composer
+4. Pobrać Git
+5. Wejść w vscode i odpalić folder xampp\htdocs\dashboard, wejść w terminal i w ścieżce tego wpisać git clone https://github.com/Kamcio715/Projekt_Sklep_Z_Butami.git
+6. W eksploratorze plików wejść w folder tego projektu i kliknąć prawym przyciskiem myszy i wybrać opcję Open Git Bash coś tam i wpisać komendy: git config --global user.name *wasza nazwa użytkownika na githubie* i kolejna komenda git config --global user.email *wasz email na który się zalogowaliście na githubie*
+7. Zmienić nazwę folderu projektu z Projekt_Sklep_Z_Butami na sklep
+8. W terminalu w folderze projektu wpisać: composer install
+9. php artisan migrate
+10. php artisan storage:link
+11. Pobierz Node.js, przy instalacji zostaw zaznaczone dodanie do PATH
+12. Uruchom Powershell jako administrator i wpisz te dwie komendy: 
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy  Bypass 
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+13. W terminalu w folderze projektu wpisać: 
+npm install
+npm run dev
+
+===================================================================
+
 6. Testy
 
 ===================================================================
